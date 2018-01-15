@@ -1,1 +1,1 @@
-include 'web', 'ui'
+include 'web', 'core'

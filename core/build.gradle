@@ -1,0 +1,16 @@
+apply plugin: 'war'
+
+
+task installNodeDependencies(type: Exec) {
+    workingDir 'module'
+    commandLine 'npm', 'install'
+}
+
+task installJspmDependencies(type: Exec, dependsOn: 'installNodeDependencies') {
+    workingDir = 'module'
+    commandLine 'jspm', 'install', '-y'
+}
+
+assemble.dependsOn installJspmDependencies
+assemble.mustRunAfter installJspmDependencies
+
