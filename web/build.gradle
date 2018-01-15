@@ -67,6 +67,10 @@ cargo {
         context = '/'
         file = file(project.configurations.plugins.asPath)
     }
+    
+    deployable {
+        context = 'atmosphere'
+    }
 
     local {
         homeDir = file("$project.buildDir/wildfly/sunshower-wildfly")
@@ -74,7 +78,7 @@ cargo {
 //        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
         systemProperties {
             property 'sunshower.port', '8080'
-            property 'sunshower.home', "${project.projectDir}/src/test/resources"
+            property 'sunshower.home', "${project.projectDir}/src/test/resources/local"
         }
     }
 }
