@@ -10,15 +10,16 @@ buildscript {
 
 
 apply plugin: 'war'
+apply plugin: 'idea'
 apply plugin: 'com.bmuschko.cargo'
 
 
 configurations {
     plugins {}
-    
+
     war {}
-    
-    wildfly 
+
+    wildfly
 
     libraries {
         transitive = false
@@ -30,17 +31,25 @@ configurations {
 }
 
 
+
 dependencies {
     wildfly 'io.sunshower.wildfly:wildfly-dist:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
+
+
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testCompile 'org.junit.platform:junit-platform-runner'
+
+    testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
+    testCompile group: 'org.wildfly.arquillian', name: 'wildfly-arquillian-container-managed'
+
+
 }
 
 
 artifacts {
     war tasks.war
 }
-
-
 
 //war {
 //    classpath += configurations.libraries
@@ -51,40 +60,57 @@ task unpackWildfly(type: Copy) {
     dependsOn configurations.wildfly
 
     from {
-        configurations.wildfly.collect {zipTree(it)}
+        configurations.wildfly.collect { zipTree(it) }
     }
     into "${project.buildDir}/wildfly"
 }
 
+task unpackPlugins(type: Copy, dependsOn: 'unpackWildfly') {
+    dependsOn configurations.plugins
+
+    from configurations.plugins
+    into "$project.buildDir/wildfly/sunshower-wildfly/standalone/deployments"
+}
+
+test.dependsOn unpackPlugins
+test.mustRunAfter unpackPlugins
 
 test.dependsOn unpackWildfly
 test.mustRunAfter unpackWildfly
-
-cargo {
-    containerId = 'wildfly11x'
-    port = 8080
-    deployable {
-        context = '/'
-        file = file(project.configurations.plugins.asPath)
-    }
-    
-    deployable {
-        context = 'atmosphere'
-    }
-
-    local {
-        homeDir = file("$project.buildDir/wildfly/sunshower-wildfly")
-        timeout = 60000
-//        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
-        systemProperties {
-            property 'sunshower.port', '8080'
-            property 'sunshower.home', "${project.projectDir}/src/test/resources/local"
-        }
-    }
-}
-
-
-cargoStartLocal.dependsOn assemble
-
-test.dependsOn cargoStartLocal
-test.finalizedBy cargoStopLocal
+//
+//cargo {
+//    containerId = 'wildfly11x'
+//    port = 8080
+//    deployable {
+//        context = '/'
+//        file = file(project.configurations.plugins.asPath)
+//    }
+//    
+//    deployable {
+//        context = 'atmosphere-st'
+//        file = file(project.tasks.testWar.outputs.files.singleFile)
+//    }
+//    
+//    deployable {
+//        context = 'atmosphere'
+//    }
+//
+//    local {
+//        homeDir = file("$project.buildDir/wildfly/sunshower-wildfly")
+//        timeout = 60000
+////        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+//        systemProperties {
+//            property 'sunshower.port', '8080'
+//            property 'sunshower.home', "${project.projectDir}/src/test/resources/local"
+//        }
+//    }
+//}
+//
+//assemble.dependsOn testWar
+//assemble.mustRunAfter testWar
+//
+//
+//cargoStartLocal.dependsOn assemble
+//
+//test.dependsOn cargoStartLocal
+//test.finalizedBy cargoStopLocal

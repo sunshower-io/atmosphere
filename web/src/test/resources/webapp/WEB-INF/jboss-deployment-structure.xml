@@ -1,0 +1,9 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2"
+>
+  <deployment>
+    <dependencies>
+      <module name="deployment.sunshower-web-1.0.0-SNAPSHOT.war" export="true"/>
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>
+
