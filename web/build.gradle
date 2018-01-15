@@ -1,0 +1,86 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.3'
+    }
+}
+
+
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.cargo'
+
+
+configurations {
+    plugins {}
+    
+    war {}
+    
+    wildfly 
+
+    libraries {
+        transitive = false
+    }
+
+    transitiveLibraries {
+        transitive = true
+    }
+}
+
+
+dependencies {
+    wildfly 'io.sunshower.wildfly:wildfly-dist:1.0.0-SNAPSHOT@zip'
+    plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
+}
+
+
+artifacts {
+    war tasks.war
+}
+
+
+
+//war {
+//    classpath += configurations.libraries
+//    classpath += configurations.transitiveLibraries
+//}
+
+task unpackWildfly(type: Copy) {
+    dependsOn configurations.wildfly
+
+    from {
+        configurations.wildfly.collect {zipTree(it)}
+    }
+    into "${project.buildDir}/wildfly"
+}
+
+
+test.dependsOn unpackWildfly
+test.mustRunAfter unpackWildfly
+
+cargo {
+    containerId = 'wildfly11x'
+    port = 8080
+    deployable {
+        context = '/'
+        file = file(project.configurations.plugins.asPath)
+    }
+
+    local {
+        homeDir = file("$project.buildDir/wildfly/sunshower-wildfly")
+        timeout = 60000
+//        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+        systemProperties {
+            property 'sunshower.port', '8080'
+            property 'sunshower.home', "${project.projectDir}/src/test/resources"
+        }
+    }
+}
+
+
+cargoStartLocal.dependsOn assemble
+
+test.dependsOn cargoStartLocal
+test.finalizedBy cargoStopLocal
