@@ -1,16 +1,27 @@
 apply plugin: 'war'
 
+configurations {
+    bundle 
+}
 
 task installNodeDependencies(type: Exec) {
     workingDir 'module'
     commandLine 'npm', 'install'
 }
 
-task installJspmDependencies(type: Exec, dependsOn: 'installNodeDependencies') {
-    workingDir = 'module'
-    commandLine 'jspm', 'install', '-y'
+task packageAll(type: Exec, dependsOn: 'installNodeDependencies') {
+    workingDir 'module'
+    commandLine 'npm', 'start', '--', 'build'
 }
 
-assemble.dependsOn installJspmDependencies
-assemble.mustRunAfter installJspmDependencies
+task bundle(type: Zip, dependsOn: 'packageAll') {
+    from "module/dist"
+}
+
+assemble.dependsOn bundle 
+assemble.mustRunAfter bundle 
+
+artifacts {
+    bundle tasks.bundle
+}
 
