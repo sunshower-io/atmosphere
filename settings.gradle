@@ -1,1 +1,1 @@
-include 'web', 'core', 'test-plugin'
+include 'web' //, 'core', 'test-plugin'

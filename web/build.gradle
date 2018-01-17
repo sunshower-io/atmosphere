@@ -3,16 +3,20 @@ buildscript {
         jcenter()
     }
 
-    dependencies {
+    dependencies {   
+        classpath 'org.akhikhl.gretty:gretty:+'
         classpath 'com.bmuschko:gradle-cargo-plugin:2.3'
     }
 }
 
-
 apply plugin: 'war'
 apply plugin: 'idea'
+apply plugin: 'org.akhikhl.gretty'
 apply plugin: 'com.bmuschko.cargo'
 
+gretty {
+    servletContainer = 'jetty9.4'
+}
 
 configurations {
     modules {}
@@ -35,8 +39,12 @@ configurations {
 
 
 dependencies {
+    
+    compile 'de.neuland-bfi:jade4j:1.2.7'
+    compile 'de.neuland-bfi:spring-jade4j:1.2.7'
+    
+    compile 'org.springframework:spring-webmvc'
 
-    modules project(path: ':core', configuration: 'bundle')
     wildfly 'io.sunshower.wildfly:wildfly-dist:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
 
@@ -55,17 +63,6 @@ dependencies {
 artifacts {
     war tasks.war
 }
-
-//task unpackModules(type: Copy) {
-//    dependsOn configurations.modules
-//    
-//    from {
-//        configurations.modules.collect {
-//            zipTree(it)
-//        }
-//    }
-//    into "$project.buildDir/resources/main/webapp"
-//}
 
 
 task unpackWildfly(type: Copy) {
