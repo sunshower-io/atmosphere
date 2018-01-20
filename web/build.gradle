@@ -18,6 +18,7 @@ gretty {
     servletContainer = 'jetty9.4'
 }
 
+
 configurations {
     modules {}
     plugins {}
@@ -39,9 +40,13 @@ configurations {
 
 
 dependencies {
+    compile 'javax.inject:javax.inject'
     
     compile 'de.neuland-bfi:jade4j:1.2.7'
     compile 'de.neuland-bfi:spring-jade4j:1.2.7'
+
+    compileOnly 'io.sunshower.kernel:kernel-api:1.0.0-SNAPSHOT'
+    compileOnly 'io.sunshower.kernel:kernel-wildfly-provider:1.0.0-SNAPSHOT'
     
     compile 'org.springframework:spring-webmvc'
 

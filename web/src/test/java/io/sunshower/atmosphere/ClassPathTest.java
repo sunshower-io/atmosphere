@@ -1,5 +1,6 @@
 package io.sunshower.atmosphere;
 
+import io.sunshower.kernel.api.PluginManager;
 import io.sunshower.test.common.TestClasspath;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -9,10 +10,17 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import javax.annotation.Resource;
 import java.io.File;
 
 @RunWith(Arquillian.class)
 public class ClassPathTest {
+
+  @Resource(
+    name =
+        "java:global/kernel-wildfly-provider-1.0.0-SNAPSHOT/WildflyPluginManager!io.sunshower.kernel.api.PluginManager"
+  )
+  private PluginManager pluginManager;
 
   static File file(String path) {
     return new File(TestClasspath.buildDir().getParentFile(), path);

@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("auth")
 public class AuthenticationController {
     
-    @RequestMapping("/")
+    @RequestMapping({"/"})
     public ModelAndView authenticate() {
         final ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("name", "josiah");
-        modelAndView.setViewName("auth/authenticate");
+        modelAndView.addObject("title", "Login");
+        modelAndView.setViewName("views/auth/login");
         return modelAndView;
     }
 }
