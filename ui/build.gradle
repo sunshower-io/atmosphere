@@ -18,7 +18,8 @@ task assembleSite(type: Exec, dependsOn: 'installDev') {
 
 
 task bundle(type: Zip) {
-    from "$project.projectDir/export"
+    from "$project.projectDir/module/export"
+    into "/"
 }
 
 bundle.dependsOn assembleSite

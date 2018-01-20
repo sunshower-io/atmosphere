@@ -42,7 +42,7 @@ dependencies {
 
     compileOnly 'io.sunshower.kernel:kernel-api'
     testCompile 'io.sunshower.kernel:kernel-api'
-//    ui project(path: ':ui', configuration: 'web')
+    ui project(path: ':ui', configuration: 'web')
     
     compile 'javax.inject:javax.inject'
     compile 'de.neuland-bfi:jade4j:1.2.7'
@@ -97,9 +97,9 @@ task unpackPlugins(type: Copy, dependsOn: 'unpackWildfly') {
 war {
     dependsOn configurations.ui
     from {
-        configurations.modules.collect { zipTree(it) }
+        configurations.ui.collect { zipTree(it) }
     }
-    into "$project.buildDir/"
+    into "/"
 }
 
 //build.dependsOn unpackModules
