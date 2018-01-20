@@ -16,7 +16,7 @@
 
   <container qualifier="widlfly-managed" default="true">
     <configuration>
-      <property name="jbossHome">${jbossHome:build/wildfly/sunshower-wildfly}</property>
+      <property name="jbossHome">${jbossHome:build/wildfly}</property>
     </configuration>
   </container>
 </arquillian>

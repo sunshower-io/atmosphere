@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
 
-    dependencies {   
+    dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
         classpath 'com.bmuschko:gradle-cargo-plugin:2.3'
     }
@@ -11,15 +11,14 @@ buildscript {
 
 apply plugin: 'war'
 apply plugin: 'idea'
-apply plugin: 'org.akhikhl.gretty'
 apply plugin: 'com.bmuschko.cargo'
 
-gretty {
-    servletContainer = 'jetty9.4'
-}
 
 
 configurations {
+
+    ui {}
+
     modules {}
     plugins {}
 
@@ -40,18 +39,26 @@ configurations {
 
 
 dependencies {
-    compile 'javax.inject:javax.inject'
+
+    compileOnly 'io.sunshower.kernel:kernel-api'
+    testCompile 'io.sunshower.kernel:kernel-api'
+//    ui project(path: ':ui', configuration: 'web')
     
+    compile 'javax.inject:javax.inject'
     compile 'de.neuland-bfi:jade4j:1.2.7'
     compile 'de.neuland-bfi:spring-jade4j:1.2.7'
 
+    libraries 'de.neuland-bfi:jade4j:1.2.7'
+    libraries 'de.neuland-bfi:spring-jade4j:1.2.7'
+
     compileOnly 'io.sunshower.kernel:kernel-api:1.0.0-SNAPSHOT'
     compileOnly 'io.sunshower.kernel:kernel-wildfly-provider:1.0.0-SNAPSHOT'
-    
+
     compile 'org.springframework:spring-webmvc'
 
-    wildfly 'io.sunshower.wildfly:wildfly-dist:1.0.0-SNAPSHOT@zip'
+    wildfly 'io.sunshower.wildfly:sunshower-wildfly:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
+    plugins 'io.sunshower.deployment:sunshower-theme:1.0.0-SNAPSHOT@war'
 
     testCompile 'io.sunshower.test:test-common:1.0.0-SNAPSHOT'
 
@@ -61,6 +68,7 @@ dependencies {
     testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
     testCompile group: 'org.wildfly.arquillian', name: 'wildfly-arquillian-container-managed'
 
+    
 
 }
 
@@ -83,15 +91,15 @@ task unpackPlugins(type: Copy, dependsOn: 'unpackWildfly') {
     dependsOn configurations.plugins
 
     from configurations.plugins
-    into "$project.buildDir/wildfly/sunshower-wildfly/standalone/deployments"
+    into "$project.buildDir/wildfly/standalone/deployments"
 }
 
 war {
-    dependsOn configurations.modules
+    dependsOn configurations.ui
     from {
         configurations.modules.collect { zipTree(it) }
     }
-    into "/"
+    into "$project.buildDir/"
 }
 
 //build.dependsOn unpackModules
@@ -102,3 +110,31 @@ test.mustRunAfter unpackPlugins
 
 test.dependsOn unpackWildfly
 test.mustRunAfter unpackWildfly
+
+war {
+    classpath = configurations.libraries
+    classpath += configurations.transitiveLibraries
+}
+
+
+
+cargo {
+    containerId = 'wildfly11x'
+    port = 8080
+    
+    local {
+        homeDir = file("$project.buildDir/wildfly")
+        timeout = 60000
+//        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+        systemProperties {
+            property 'sunshower.port', '8080'
+            property 'sunshower.home', "${project.projectDir}/src/test/resources"
+        }
+    }
+}
+
+
+cargoStartLocal.dependsOn assemble
+//
+//test.dependsOn cargoStartLocal
+//test.finalizedBy cargoStopLocal

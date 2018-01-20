@@ -1,0 +1,44 @@
+apply plugin: 'war'
+apply plugin: 'maven-publish'
+
+task installDependencies(type: Exec) {
+    workingDir 'module'
+    commandLine 'npm', 'install'
+}
+
+task installDev(type: Exec, dependsOn: 'installDependencies') {
+    workingDir 'module'
+    commandLine 'jspm', 'install', '-y'
+}
+
+task assembleSite(type: Exec, dependsOn: 'installDev') {
+    workingDir 'module'
+    commandLine 'gulp', 'clean', 'build', 'export'
+}
+
+
+task bundle(type: Zip) {
+    from "$project.projectDir/export"
+}
+
+bundle.dependsOn assembleSite
+
+assemble.dependsOn bundle
+
+configurations {
+    web
+
+}
+
+artifacts {
+    web bundle
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact bundle
+        }
+    }
+}
