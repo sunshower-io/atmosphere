@@ -80,7 +80,9 @@
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "fetch": "github:github/fetch@^1.0.0",
       "font-awesome": "npm:font-awesome@4.6.3",
+      "golden-layout": "npm:golden-layout@^1.5.9",
       "jquery": "npm:jquery@^2.2.4",
+      "phosphor-dockpanel": "npm:phosphor-dockpanel@^0.9.7",
       "text": "github:systemjs/plugin-text@^0.0.8"
     },
     "devDependencies": {}

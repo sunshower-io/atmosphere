@@ -15,6 +15,7 @@ var htmlmin = require('gulp-htmlmin');
 // by errors from other gulp plugins
 // https://www.npmjs.com/package/gulp-plumber
 var typescriptCompiler = typescriptCompiler || null;
+
 gulp.task('build-system', function() {
   if(!typescriptCompiler) {
     typescriptCompiler = typescript.createProject('tsconfig.json', {
