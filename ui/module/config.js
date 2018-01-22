@@ -4,13 +4,19 @@ System.config({
   paths: {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "golden-layout": "jspm_packages/goldent-layout@1.5.9/goldenlayout.js"
   },
   meta: {
     "bootstrap": {
       "deps": [
         "jquery"
       ]
+    }
+  },
+  packages: {
+    "golden-layout": {
+      "main": "goldenlayout.js"
     }
   },
   map: {
@@ -31,8 +37,9 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "fetch": "github:github/fetch@1.0.0",
     "font-awesome": "npm:font-awesome@4.6.3",
-    "golden-layout": "npm:golden-layout@1.5.9/goldenlayout.js",
+    "golden-layout": "npm:golden-layout@1.5.9",
     "jquery": "npm:jquery@2.2.4",
+    "phosphor-dockpanel": "npm:phosphor-dockpanel@0.9.7",
     "sunshower-layout": "github:sunshower-io/sunshower-layout@1.0.0",
     "text": "github:systemjs/plugin-text@0.0.8",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -193,6 +200,85 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:phosphor-boxpanel@1.0.0-rc.0": {
+      "phosphor-arrays": "npm:phosphor-arrays@1.0.6",
+      "phosphor-boxengine": "npm:phosphor-boxengine@1.0.1",
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-panel": "npm:phosphor-panel@1.0.0-rc.1",
+      "phosphor-properties": "npm:phosphor-properties@2.0.0",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1"
+    },
+    "npm:phosphor-dockpanel@0.9.7": {
+      "phosphor-arrays": "npm:phosphor-arrays@1.0.6",
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "phosphor-dragdrop": "npm:phosphor-dragdrop@0.9.1",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-nodewrapper": "npm:phosphor-nodewrapper@1.0.6",
+      "phosphor-properties": "npm:phosphor-properties@2.0.0",
+      "phosphor-splitpanel": "npm:phosphor-splitpanel@1.0.0-rc.1",
+      "phosphor-stackedpanel": "npm:phosphor-stackedpanel@1.0.0-rc.0",
+      "phosphor-tabs": "npm:phosphor-tabs@1.0.0-rc.2",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1"
+    },
+    "npm:phosphor-domutil@1.2.0": {
+      "phosphor-disposable": "npm:phosphor-disposable@1.0.5"
+    },
+    "npm:phosphor-dragdrop@0.9.1": {
+      "phosphor-disposable": "npm:phosphor-disposable@1.0.5",
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:phosphor-messaging@1.0.6": {
+      "phosphor-queue": "npm:phosphor-queue@1.0.5",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:phosphor-panel@1.0.0-rc.1": {
+      "phosphor-arrays": "npm:phosphor-arrays@1.0.6",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1"
+    },
+    "npm:phosphor-properties@2.0.0": {
+      "phosphor-signaling": "npm:phosphor-signaling@1.2.0"
+    },
+    "npm:phosphor-splitpanel@1.0.0-rc.1": {
+      "phosphor-arrays": "npm:phosphor-arrays@1.0.6",
+      "phosphor-boxengine": "npm:phosphor-boxengine@1.0.1",
+      "phosphor-disposable": "npm:phosphor-disposable@1.0.5",
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-panel": "npm:phosphor-panel@1.0.0-rc.1",
+      "phosphor-properties": "npm:phosphor-properties@2.0.0",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1"
+    },
+    "npm:phosphor-stackedpanel@1.0.0-rc.0": {
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-panel": "npm:phosphor-panel@1.0.0-rc.1",
+      "phosphor-properties": "npm:phosphor-properties@2.0.0",
+      "phosphor-signaling": "npm:phosphor-signaling@1.2.0",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1"
+    },
+    "npm:phosphor-tabs@1.0.0-rc.2": {
+      "phosphor-arrays": "npm:phosphor-arrays@1.0.6",
+      "phosphor-boxpanel": "npm:phosphor-boxpanel@1.0.0-rc.0",
+      "phosphor-disposable": "npm:phosphor-disposable@1.0.5",
+      "phosphor-domutil": "npm:phosphor-domutil@1.2.0",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-signaling": "npm:phosphor-signaling@1.2.0",
+      "phosphor-stackedpanel": "npm:phosphor-stackedpanel@1.0.0-rc.0",
+      "phosphor-widget": "npm:phosphor-widget@1.0.0-rc.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:phosphor-widget@1.0.0-rc.1": {
+      "phosphor-disposable": "npm:phosphor-disposable@1.0.5",
+      "phosphor-messaging": "npm:phosphor-messaging@1.0.6",
+      "phosphor-nodewrapper": "npm:phosphor-nodewrapper@1.0.6",
+      "phosphor-properties": "npm:phosphor-properties@2.0.0",
+      "phosphor-queue": "npm:phosphor-queue@1.0.5",
+      "phosphor-signaling": "npm:phosphor-signaling@1.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:process@0.11.10": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
