@@ -1,0 +1,23 @@
+template
+    h2.mdc-typography--headline first step? log in
+    form(submit.bind="login()" autocomplete="off")
+        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
+            i.material-icons.mdc-text-field__icon face
+            input#email.mdc-text-field__input(type="email" value.bind="user.email" required)
+            label.mdc-text-field__label(for="email") email
+            div.mdc-text-field__bottom-line
+        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
+            i.material-icons.mdc-text-field__icon lock
+            input#password.mdc-text-field__input(type="password" value.bind="user.password" required)
+            label.mdc-text-field__label(for="password") password
+            div.mdc-text-field__bottom-line
+        div.sunshower-button-holder
+            button.mdc-button(type="submit")
+                | get going
+    p if you're not quite there yet,
+        | #{' '}
+        a(click.delegate="signup()") step zero is to sign up
+    p heck, go
+        | #{' '}
+        a read the docs
+        |  -- we'll wait

@@ -9,6 +9,17 @@ var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 var typescript = require('gulp-typescript');
 var htmlmin = require('gulp-htmlmin');
+var pug = require('gulp-pug');
+
+
+gulp.task('build-pug', function () {
+    return gulp.src(paths.pug)
+        .pipe(pug({pretty: true}).on('error', function (er) {
+            console.log(er);
+        }))
+        .pipe(changed(paths.output, {extension: '.html'}))
+        .pipe(gulp.dest(paths.output))
+});
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -56,7 +67,7 @@ gulp.task('build-css', function() {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-html', 'build-css'],
+    ['build-system', 'build-html', 'build-css', 'build-pug'],
     callback
   );
 });

@@ -1,0 +1,189 @@
+<template>
+    <div id="styleguide">
+        <header class="mdc-toolbar">
+            <div class="mdc-toolbar__row">
+                <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+                    <a href="#" class="material-icons mdc-toolbar__menu-icon menu">menu</a>
+                    <span class="mdc-toolbar__title">Sunshower</span>
+                </section>
+            </div>
+        </header>
+        <h1>Welcome to Sunshower</h1>
+        <h2>This is the style guide.</h2>
+        <h3>It currently shows cards, forms, dialogs and snackbars.</h3>
+        <section class="mdc-card__horizontal-block sunshower-card-holder">
+            <div class="mdc-card__actions--vertical mdc-card">
+                <section class="mdc-card__primary">
+                    <h1 class="mdc-card__title mdc-card__title--large">One Thing</h1>
+                    <h2 class="mdc-card__subtitle">Here is a thing. There is one of it</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </section>
+                <section class="mdc-card__actions">
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 1</a>
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 2</a>
+                </section>
+            </div>
+            <div class="mdc-card__actions--vertical mdc-card">
+                <section class="mdc-card__primary">
+                    <h1 class="mdc-card__title mdc-card__title--large">Two Thing</h1>
+                    <h2 class="mdc-card__subtitle">Here is a thing. There is one of it</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </section>
+                <section class="mdc-card__actions">
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 1</a>
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 2</a>
+                </section>
+            </div>
+            <div class="mdc-card__actions--vertical mdc-card">
+                <section class="mdc-card__primary">
+                    <h1 class="mdc-card__title mdc-card__title--large">Red Thing</h1>
+                    <h2 class="mdc-card__subtitle">Here is a thing. There is one of it</h2>
+                </section>
+                <section class="mdc-card__supporting-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </section>
+                <section class="mdc-card__actions">
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 1</a>
+                    <a class="mdc-button mdc-button--compact mdc-card__action">Action 2</a>
+                </section>
+            </div>
+        </section>
+        <section class="sunshower-form-holder">
+            <form>
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               id="my-checkbox"
+                               class="mdc-checkbox__native-control"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark__path"
+                                      fill="none"
+                                      stroke="white"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59">
+                                </path>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label for="my-checkbox">My Checkbox Label</label>
+                </div>
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                    <label id="radio-1-label" for="radio-1">Radio 1</label>
+                </div>
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                    <label id="radio-2-label" for="radio-2">Radio 2</label>
+                </div>
+                <div class="mdc-form-field">
+                    <div class="mdc-select">
+                        <select class="mdc-select__surface">
+                            <option value="" default selected>Pick a food group</option>
+                            <option value="grains">Bread, Cereal, Rice, and Pasta</option>
+                            <option value="vegetables" disabled>Vegetables</option>
+                            <option value="fruit">Fruit</option>
+                            <option value="dairy">Milk, Yogurt, and Cheese</option>
+                            <option value="meat">Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts</option>
+                            <option value="fats">Fats, Oils, and Sweets</option>
+                        </select>
+                        <div class="mdc-select__bottom-line"></div>
+                    </div>
+                </div>
+                <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider"
+                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+                     aria-label="Select Value">
+                    <div class="mdc-slider__track-container">
+                        <div class="mdc-slider__track"></div>
+                    </div>
+                    <div class="mdc-slider__thumb-container">
+                        <div class="mdc-slider__pin">
+                            <span class="mdc-slider__pin-value-marker"></span>
+                        </div>
+                        <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                        </svg>
+                        <div class="mdc-slider__focus-ring"></div>
+                    </div>
+                </div>
+                <div class="mdc-form-field">
+                    <div class="mdc-switch">
+                        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" />
+                        <div class="mdc-switch__background">
+                            <div class="mdc-switch__knob"></div>
+                        </div>
+                    </div>
+                    <label for="basic-switch" class="mdc-switch-label">off/on</label>
+                </div>
+                <div class="mdc-form-field mdc-text-field mdc-text-field--upgraded">
+                    <input required="" pattern=".{8,}" type="password" class="mdc-text-field__input" id="pw" aria-controls="pw-validation-msg" autocomplete="current-password" kl_vkbd_parsed="true">
+                    <label for="pw" class="mdc-text-field__label">Choose password</label>
+                    <div class="mdc-text-field__bottom-line"></div>
+                </div>
+                <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg" id="pw-validation-msg">
+                    Must be at least 8 characters long
+                </p>
+                <div class="sunshower-button-holder">
+                    <button type="submit" class="mdc-button">
+                        In Theory, Submit Me
+                    </button>
+                </div>
+            </form>
+        </section>
+        <section class="sunshower-dialog-holder">
+            <button class="mdc-button open-dialog">
+                Open a Dialog, Sesame
+            </button>
+            <aside class="mdc-dialog our-dialog">
+                <div class="mdc-dialog__surface">
+                    <header class="mdc-dialog__header">
+                        <h2 class="mdc-dialog__header__title">
+                            Hallo and welcome to this dialog box
+                        </h2>
+                    </header>
+                    <section class="mdc-dialog__body">
+                        You can feel free to close it now -- there's nothing to see here.
+                    </section>
+                    <footer class="mdc-dialog__footer">
+                        <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Decline</button>
+                        <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__action">Accept</button>
+                    </footer>
+                </div>
+            </aside>
+        </section>
+        <section class="sunshower-snackbar-holder">
+            <button class="mdc-button open-snackbar">
+                Gimme a Snack
+            </button>
+            <div class="mdc-snackbar"
+                 aria-live="assertive"
+                 aria-atomic="true"
+                 aria-hidden="true">
+                <div class="mdc-snackbar__text"></div>
+                <div class="mdc-snackbar__action-wrapper">
+                    <button type="button" class="mdc-snackbar__action-button"></button>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

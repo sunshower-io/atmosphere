@@ -1,0 +1,23 @@
+template
+    h2.mdc-typography--headline we'd love it if you'd sign up
+    form(submit.bind="signup()" autocomplete="off")
+        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
+            i.material-icons.mdc-text-field__icon face
+            input#email.mdc-text-field__input(type="email" value.bind="user.email" required)
+            label.mdc-text-field__label(for="email") email
+            div.mdc-text-field__bottom-line
+        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
+            i.material-icons.mdc-text-field__icon lock
+            input#password.mdc-text-field__input(type="password" value.bind="user.password" required)
+            label.mdc-text-field__label(for="password") password
+            div.mdc-text-field__bottom-line
+        div.sunshower-button-holder
+            button.mdc-button(type="submit")
+                | get going
+    p not sure if you want to?
+        | #{' '}
+        a read the docs
+        |  -- we'll wait
+    p if you've already done this and been approved,
+        | #{' '}
+        a(click.delegate="login()") go log in
