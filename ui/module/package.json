@@ -64,6 +64,7 @@
   },
   "jspm": {
     "dependencies": {
+      "@material/textfield": "npm:@material/textfield@^0.29.0",
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0",
@@ -83,7 +84,6 @@
       "font-awesome": "npm:font-awesome@4.6.3",
       "golden-layout": "npm:golden-layout@^1.5.9",
       "jquery": "npm:jquery@^2.2.4",
-      "phosphor-dockpanel": "npm:phosphor-dockpanel@^0.9.7",
       "text": "github:systemjs/plugin-text@^0.0.8"
     },
     "devDependencies": {}

@@ -1,4 +1,5 @@
-// import * as mdc from 'material-components-web';
+import {MDCTextField} from '@material/textfield'
+
 import Auth from './auth';
 import User from './user';
 import {autoinject} from "aurelia-dependency-injection";
@@ -13,8 +14,10 @@ export class Login {
     }
 
     attached() {
-        // const emailField = new mdc.textField.MDCTextField(document.querySelector('#email').parentNode);
-        // const passwordField = new mdc.textField.MDCTextField(document.querySelector('#password').parentNode);
+        let emailField = new MDCTextField(document.querySelector('#email').parentNode);
+        let passwordField = new MDCTextField(document.querySelector('#password').parentNode);
+        
+        console.log(emailField);
     }
 
     login() {
