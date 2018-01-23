@@ -3,6 +3,7 @@ import {Application} from './lib/sunshower';
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
+        .plugin('sunshower-layout')
         // .plugin('github:sunshower-io/aurelia-layout')
         // .plugin('frapper')
         .standardConfiguration();
