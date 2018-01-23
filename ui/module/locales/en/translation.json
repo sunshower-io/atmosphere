@@ -1,0 +1,11 @@
+{
+  "score": "Score: {{score}}",
+  "lives": "{{count}} life remaining",
+  "lives_plural": "{{count}} lives remaining",
+  "lives_indefinite": "a life remaining",
+  "lives_plural_indefinite": "some lives remaining",
+  "friend": "A friend",
+  "friend_male": "A boyfriend",
+  "friend_female": "A girlfriend"
+}
+  
