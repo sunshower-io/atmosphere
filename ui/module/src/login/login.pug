@@ -1,18 +1,24 @@
 template
-    h2.mdc-typography--headline first step? log in
+    h2 first step? log in
     form(submit.bind="login()" autocomplete="off")
-        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
-            i.material-icons.mdc-text-field__icon face
-            input#email.mdc-text-field__input(type="email" value.bind="user.email" required)
-            label.mdc-text-field__label(for="email") email
-            div.mdc-text-field__bottom-line
-        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-leading-icon
-            i.material-icons.mdc-text-field__icon lock
-            input#password.mdc-text-field__input(type="password" value.bind="user.password" required)
-            label.mdc-text-field__label(for="password") password
-            div.mdc-text-field__bottom-line
+        .mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--with-trailing-icon.mdc-text-field--upgraded
+            input#email.mdc-text-field__input(type='email' value.bind="user.email" required)
+            label.mdc-text-field__label(for='email') Email
+            i.material-icons.mdc-text-field__icon(tabindex='0') face
+            .mdc-text-field__outline.mdc-ripple-upgraded
+                svg
+                    path.mdc-text-field__outline-path
+            .mdc-text-field__idle-outline
+        .mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--with-trailing-icon.mdc-text-field--upgraded
+            input#password.mdc-text-field__input(type='password' value.bind="user.password" required)
+            label.mdc-text-field__label(for='password') Password
+            i.material-icons.mdc-text-field__icon(tabindex='0') lock
+            .mdc-text-field__outline.mdc-ripple-upgraded
+                svg
+                    path.mdc-text-field__outline-path
+            .mdc-text-field__idle-outline
         div.sunshower-button-holder
-            button.mdc-button(type="submit")
+            button(type="submit")
                 | get going
     p if you're not quite there yet,
         | #{' '}
