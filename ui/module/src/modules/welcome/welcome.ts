@@ -1,17 +1,19 @@
 import {Router, RouterConfiguration} from 'aurelia-router';
-import {Aurelia} from "aurelia-framework";
-import {inject} from "aurelia-dependency-injection";
+import {Aurelia, inject} from "aurelia-framework";
+import {ActivationStep, SecurityService} from "aire/api/security";
+import {autoinject} from "aurelia-dependency-injection";
 
-@inject(Aurelia)
+@autoinject
 export class Auth {
     public router: Router;
 
-    constructor(private aurelia: Aurelia) {
+    constructor(private aurelia: Aurelia, private securityService: SecurityService) {
 
     }
 
     public configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'Sunshower';
+        config.addAuthorizeStep(new ActivationStep(this.securityService, "activate"));
         config.map([
             {
                 route: ['', 'login'],
@@ -19,8 +21,8 @@ export class Auth {
                 moduleId: 'modules/welcome/login/login',
                 nav: true,
                 title: 'Log In',
-                settings : {
-                    isActive:true,
+                settings: {
+                    isActive: true,
                 }
             }, {
                 route: 'signup',
@@ -28,6 +30,12 @@ export class Auth {
                 moduleId: 'modules/welcome/signup/signup',
                 nav: true,
                 title: 'Sign Up'
+            }, {
+                route: 'activate',
+                name: 'activate',
+                moduleId: 'modules/welcome/activate/activate',
+                nav: true,
+                title: 'Activate',
             }
         ]);
         config.mapUnknownRoutes('apps/auth/login/login');

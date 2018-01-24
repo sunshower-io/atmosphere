@@ -1,22 +1,8 @@
 template
     h2 we'd love it if you'd sign up
     form(submit.bind="signup()" autocomplete="off")
-        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-trailing-icon
-            input#email.mdc-text-field__input(type="email" value.bind="user.email" required)
-            label.mdc-text-field__label(for="email") email
-            i.material-icons.mdc-text-field__icon face
-            .mdc-text-field__outline
-                svg
-                    path.mdc-text-field__outline-path
-            .mdc-text-field__idle-outline
-        div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded.mdc-text-field--with-trailing-icon
-            input#password.mdc-text-field__input(type="password" value.bind="user.password" required)
-            label.mdc-text-field__label(for="password") password
-            i.material-icons.mdc-text-field__icon lock
-            .mdc-text-field__outline
-                svg
-                    path.mdc-text-field__outline-path
-            .mdc-text-field__idle-outline
+        text-field(type="text" value.bind="user.username", t="[label]welcome.login.username")
+        text-field(type="password" value.bind="user.password", t="[label]welcome.login.password")
         div.sunshower-button-holder
             button(type="submit")
                 | get going

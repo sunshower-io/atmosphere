@@ -1,4 +1,4 @@
-import {Aurelia} from "aurelia-framework";
+import {Aurelia, LogManager} from "aurelia-framework";
 import {Backend, TCustomAttribute} from "aurelia-i18n";
 
 export function configurePlugins(aurelia:Aurelia) {
@@ -18,5 +18,6 @@ export function configurePlugins(aurelia:Aurelia) {
                 debug: false
             });
         })
+        .developmentLogging()
         .standardConfiguration();
 }
