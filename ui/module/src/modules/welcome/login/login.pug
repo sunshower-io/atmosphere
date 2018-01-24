@@ -1,22 +1,8 @@
 template
     h2 first step? log in
     form(submit.bind="login()" autocomplete="off")
-        .mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--with-trailing-icon.mdc-text-field--upgraded
-            input#email.mdc-text-field__input(type='email' value.bind="user.email" required)
-            label.mdc-text-field__label(for='email') Email
-            i.material-icons.mdc-text-field__icon(tabindex='0') face
-            .mdc-text-field__outline.mdc-ripple-upgraded
-                svg
-                    path.mdc-text-field__outline-path
-            .mdc-text-field__idle-outline
-        .mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--with-trailing-icon.mdc-text-field--upgraded
-            input#password.mdc-text-field__input(type='password' value.bind="user.password" required)
-            label.mdc-text-field__label(for='password') Password
-            i.material-icons.mdc-text-field__icon(tabindex='0') lock
-            .mdc-text-field__outline.mdc-ripple-upgraded
-                svg
-                    path.mdc-text-field__outline-path
-            .mdc-text-field__idle-outline
+        text-field(type="text" value.bind="user.username", t="[label]login.username")
+        text-field(type="password" value.bind="user.password", t="[label]login.password")
         div.sunshower-button-holder
             button(type="submit")
                 | get going

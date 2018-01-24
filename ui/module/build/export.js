@@ -7,8 +7,8 @@ module.exports = {
         'config.js',
         'favicon.ico',
         'LICENSE',
-        'jspm_packages/github/sunshower-io/sunshower-layout@1.0.0/**/*',
-        'jspm_packages/github/sunshower-io/sunshower-layout@1.0.0.js',
+        'jspm_packages/github/sunshower-io/aire@1.0.0/**/*',
+        'jspm_packages/github/sunshower-io/aire@1.0.0.js',
         'jspm_packages/npm/golden-layout@1.5.9/goldenlayout.js',
         "jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js",
        
@@ -31,7 +31,7 @@ module.exports = {
         ['plugin-css', ['/**/*']],
         ['plugin-text', ['/**/*']],
         ['golden-layout', ['/**/*']],
-        ['sunshower-layout', ['/**/*']],
+        ['aire', ['/**/*']],
         [
             // include font-awesome.css and its fonts files
             'font-awesome', [

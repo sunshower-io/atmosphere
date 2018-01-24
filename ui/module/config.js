@@ -6,7 +6,8 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
     "golden-layout": "jspm_packages/goldent-layout@1.5.9/goldenlayout.js",
-    "@material/textfield": "jspm_packages/npm/@material/textfield@0.29.0/dist/**/*.js"
+    "aire": "jspm_packages/github/sunshower-io/aire@1.0.0",
+    "aire/*": "jspm_packages/github/sunshower-io/aire@1.0.0/*"
   },
   packages: {
     "@material/textfield": {
@@ -15,7 +16,7 @@ System.config({
     "golden-layout": {
       "main": "goldenlayout.js"
     },
-    "sunshower-layout": {
+    "aire": {
       "main": "index.js"
     }
   },
@@ -51,8 +52,7 @@ System.config({
     "jquery": "npm:jquery@2.2.4",
     "material-components-web": "npm:material-components-web@0.28.0",
     "phosphor-dockpanel": "npm:phosphor-dockpanel@0.9.7",
-    "sunshower-io/sunshower-layout": "github:sunshower-io/sunshower-layout@1.0.0",
-    "sunshower-layout": "github:sunshower-io/sunshower-layout@1.0.0",
+    "sunshower-io/aire": "github:sunshower-io/aire@1.0.0",
     "text": "github:systemjs/plugin-text@0.0.8",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"

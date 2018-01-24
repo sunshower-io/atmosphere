@@ -8,8 +8,8 @@
     "aurelia-fetch-client": "github:aurelia/fetch-client",
     "aurelia-framework": "github:aurelia/framework",
     "aurelia-history": "github:aurelia/history",
-    "aurelia-i18n": "github:aurelia/i18n",
     "aurelia-history-browser": "github:aurelia/history-browser",
+    "aurelia-i18n": "github:aurelia/i18n",
     "aurelia-loader": "github:aurelia/loader",
     "aurelia-logging": "github:aurelia/logging",
     "aurelia-logging-console": "github:aurelia/logging-console",
@@ -25,5 +25,8 @@
     "aurelia-templating-binding": "github:aurelia/templating-binding",
     "aurelia-templating-resources": "github:aurelia/templating-resources",
     "aurelia-templating-router": "github:aurelia/templating-router"
+  },
+  "globalDependencies": {
+    "index": "github:sunshower-io/aire/src/typings/index.d.ts"
   }
 }
