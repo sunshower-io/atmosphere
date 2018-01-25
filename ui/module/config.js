@@ -29,6 +29,7 @@ System.config({
   },
   map: {
     "@material/textfield": "npm:@material/textfield@0.29.0",
+    "@material/toolbar": "npm:@material/toolbar@0.29.0",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.1",
@@ -244,6 +245,13 @@ System.config({
       "@material/elevation": "npm:@material/elevation@0.28.0",
       "@material/rtl": "npm:@material/rtl@0.1.8",
       "@material/theme": "npm:@material/theme@0.28.0",
+      "@material/typography": "npm:@material/typography@0.28.0"
+    },
+    "npm:@material/toolbar@0.29.0": {
+      "@material/base": "npm:@material/base@0.29.0",
+      "@material/elevation": "npm:@material/elevation@0.28.0",
+      "@material/rtl": "npm:@material/rtl@0.29.0",
+      "@material/theme": "npm:@material/theme@0.29.0",
       "@material/typography": "npm:@material/typography@0.28.0"
     },
     "npm:assert@1.4.1": {

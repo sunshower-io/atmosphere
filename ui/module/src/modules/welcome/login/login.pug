@@ -1,10 +1,10 @@
 template
     h2 first step? log in
-    form(submit.bind="login()" autocomplete="off")
-        text-field(type="text" value.bind="user.username", t="[label]welcome.login.username")
-        text-field(type="password" value.bind="user.password", t="[label]welcome.login.password")
+    form(submit.delegate="login()" autocomplete="false")
+        text-field(type="text" value.bind="user.username" icon="face", t="[label]welcome.login.username")
+        text-field(type="password" value.bind="user.password" icon="lock", t="[label]welcome.login.password")
         div.sunshower-button-holder
-            button(type="submit", click.delegate="login()")
+            button(type="submit")
                 | get going
     p if you're not quite there yet,
         | #{' '}
