@@ -11,9 +11,6 @@ export function configure(aurelia: Aurelia) {
         configureClient(aurelia);
         aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
     });
-
-
-
 }
 
 
