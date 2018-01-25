@@ -125,7 +125,7 @@ cargo {
     local {
         homeDir = file("$project.buildDir/wildfly")
         timeout = 60000
-//        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+        jvmArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
         systemProperties {
             property 'sunshower.port', '8080'
             property 'sunshower.home', "${project.projectDir}/src/test/resources"

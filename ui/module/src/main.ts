@@ -1,16 +1,19 @@
 import {Aurelia} from 'aurelia-framework';
 import {Application} from './lib/sunshower';
-import {
-    authenticate, 
-    configureAuthenticated, 
-    configureClient, 
-    configurePlugins
-} from "init/configure-plugins";
+import {checkAuthentication, configureClient, configurePlugins} from "init/configure-plugins";
 
 export function configure(aurelia: Aurelia) {
-    configureClient(aurelia);
     configurePlugins(aurelia);
-    aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
+    checkAuthentication(aurelia).then(t => {
+        configureClient(aurelia, t.token.value);
+        aurelia.start().then(() => aurelia.setRoot("modules/main/index"));
+    }).catch(t => {
+        configureClient(aurelia);
+        aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
+    });
+
+
+    // aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
     // configurePlugins(aurelia);
     // try {
     //     configureAuthenticated(authenticate(aurelia), aurelia);
