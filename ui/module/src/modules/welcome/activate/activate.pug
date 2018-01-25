@@ -1,6 +1,6 @@
 template
     h2  
-    form(submit.bind="login()" autocomplete="off")
+    form(submit.delegate="submit()" autocomplete="false")
         text-field(type="text" value.bind="user.firstName", t="[label]welcome.activate.firstname")
         text-field(type="text" value.bind="user.lastName", t="[label]welcome.activate.lastname")
         text-field(type="text" value.bind="user.phoneNumber", t="[label]welcome.activate.phoneNumber")
@@ -8,11 +8,8 @@ template
         text-field(type="text" value.bind="user.emailAddress", t="[label]welcome.activate.email")
         text-field(type="password" value.bind="user.password", t="[label]welcome.activate.password")
         div.sunshower-button-holder
-            button(type="submit", click.delegate="submit()")
+            button(type="submit")
                 | get going
-    p if you're not quite there yet,
-        | #{' '}
-        a(click.delegate="signup()") step zero is to sign up
     p heck, go
         | #{' '}
         a read the docs

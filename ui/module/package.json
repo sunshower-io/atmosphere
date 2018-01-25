@@ -65,6 +65,7 @@
   "jspm": {
     "dependencies": {
       "@material/textfield": "npm:@material/textfield@^0.29.0",
+      "@material/toolbar": "npm:@material/toolbar@^0.29.0",
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0",
@@ -90,5 +91,7 @@
     },
     "devDependencies": {}
   },
-  "dependencies": {}
+  "dependencies": {
+    "@material/textfield": "^0.29.0"
+  }
 }

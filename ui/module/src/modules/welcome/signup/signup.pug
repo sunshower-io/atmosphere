@@ -1,6 +1,6 @@
 template
     h2 we'd love it if you'd sign up
-    form(submit.bind="signup()" autocomplete="off")
+    form(submit.delegate="signup()" autocomplete="off")
         text-field(type="text" value.bind="user.username", t="[label]welcome.login.username")
         text-field(type="password" value.bind="user.password", t="[label]welcome.login.password")
         div.sunshower-button-holder
