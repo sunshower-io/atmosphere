@@ -1,0 +1,23 @@
+{
+  "welcome": {
+    "routes" : {
+      "signup": "Sign Up",
+      "activate" : "Activate",
+      "login": "Login"
+    },
+    "activate" : {
+      "username": "Administrator Username",
+      "password": "Administrator Password",
+      "email": "Administrator Email",
+      "firstname": "Administrator First Name",
+      "lastname": "Administrator Last Name",
+      "emailAddress": "Administrator Email Address",
+      "phoneNumber": "Administrator Phone #"
+    },
+    "login": {
+      "username": "Username",
+      "password": "Password"
+    }
+  }
+}
+  

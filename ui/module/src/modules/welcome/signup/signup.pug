@@ -1,0 +1,15 @@
+template
+    h2 we'd love it if you'd sign up
+    form(submit.bind="signup()" autocomplete="off")
+        text-field(type="text" value.bind="user.username", t="[label]welcome.login.username")
+        text-field(type="password" value.bind="user.password", t="[label]welcome.login.password")
+        div.sunshower-button-holder
+            button(type="submit")
+                | get going
+    p not sure if you want to?
+        | #{' '}
+        a read the docs
+        |  -- we'll wait
+    p if you've already done this and been approved,
+        | #{' '}
+        a(click.delegate="login()") go log in

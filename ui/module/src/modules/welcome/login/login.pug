@@ -1,0 +1,15 @@
+template
+    h2 first step? log in
+    form(submit.bind="login()" autocomplete="off")
+        text-field(type="text" value.bind="user.username", t="[label]welcome.login.username")
+        text-field(type="password" value.bind="user.password", t="[label]welcome.login.password")
+        div.sunshower-button-holder
+            button(type="submit", click.delegate="login()")
+                | get going
+    p if you're not quite there yet,
+        | #{' '}
+        a(click.delegate="signup()") step zero is to sign up
+    p heck, go
+        | #{' '}
+        a read the docs
+        |  -- we'll wait
