@@ -16,7 +16,7 @@ export class Auth {
         config.addAuthorizeStep(new ActivationStep(this.securityService, "activate"));
         config.map([
             {
-                route: ['', 'login'],
+                route: 'login',
                 name: 'login',
                 moduleId: 'modules/welcome/login/login',
                 nav: true,
@@ -38,7 +38,7 @@ export class Auth {
                 title: 'Activate',
             }
         ]);
-        config.mapUnknownRoutes('apps/auth/login/login');
+        config.mapUnknownRoutes('modules/welcome/login/login');
         this.router = router;
     }
 }

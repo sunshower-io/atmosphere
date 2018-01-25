@@ -1,27 +1,25 @@
 import {Aurelia} from 'aurelia-framework';
 import {Application} from './lib/sunshower';
-import {configurePlugins} from "init/configure-plugins";
-import {HttpClient} from "aurelia-fetch-client";
-import {PipelineStep} from "aurelia-router";
+import {
+    authenticate, 
+    configureAuthenticated, 
+    configureClient, 
+    configurePlugins
+} from "init/configure-plugins";
 
 export function configure(aurelia: Aurelia) {
+    configureClient(aurelia);
     configurePlugins(aurelia);
-    let client = new HttpClient();
-    client.configure(cfg => {
-        cfg.useStandardConfiguration()
-            .withBaseUrl("/kernel/api/v1/")
-            .withDefaults({
-                headers: {
-                    'Accept' : 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-        
-    });
-    aurelia.container.registerInstance(HttpClient, client);
     aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
-}
+    // configurePlugins(aurelia);
+    // try {
+    //     configureAuthenticated(authenticate(aurelia), aurelia);
+    // } catch (e) {
+    //     configureClient(aurelia);
+    //     aurelia.start().then(() => aurelia.setRoot('modules/welcome/welcome')).then(configureApplication);
+    // }
 
+}
 
 
 function configureApplication(a: Aurelia): void {

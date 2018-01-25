@@ -1,5 +1,5 @@
 import {autoinject, bindable} from "aurelia-framework";
-import {SecurityService, User, Activation} from "aire/api/security";
+import {SecurityService, User} from "aire/api/security";
 
 @autoinject
 export class Activate {
