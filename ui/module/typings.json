@@ -24,7 +24,8 @@
     "aurelia-templating": "github:aurelia/templating",
     "aurelia-templating-binding": "github:aurelia/templating-binding",
     "aurelia-templating-resources": "github:aurelia/templating-resources",
-    "aurelia-templating-router": "github:aurelia/templating-router"
+    "aurelia-templating-router": "github:aurelia/templating-router",
+    "i18next": "registry:dt/i18next#2.3.4+20170122020951"
   },
   "globalDependencies": {
     "index": "github:sunshower-io/aire/src/typings/index.d.ts"
