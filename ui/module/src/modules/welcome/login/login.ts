@@ -23,15 +23,12 @@ export class Login {
 
     async login(): Promise<void> {
         let authentication = await this.securityService.login(this.user);
-        console.log("AUTH", authentication);
         set(
             "sunshower-auth-token", 
             authentication.token.value, 
             StorageMode.Local
         );
-        console.log("Frap");
         await this.securityService.authenticateByToken(authentication.token);
-        console.log("Adap");
         this.router.navigate('/', {replace: true, trigger: false});
         configureClient(this.aurelia, authentication.token.value);
         await this.aurelia.setRoot('modules/main/index');
