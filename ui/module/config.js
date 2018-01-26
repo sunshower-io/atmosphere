@@ -13,6 +13,9 @@ System.config({
     "@material/textfield": {
       "main": "dist/mdc.textfield.js"
     },
+    "@material/drawer": {
+      "main": "dist/mdc.drawer.js"
+    },
     "golden-layout": {
       "main": "goldenlayout.js"
     },
@@ -28,6 +31,7 @@ System.config({
     }
   },
   map: {
+    "@material/drawer": "npm:@material/drawer@0.29.0",
     "@material/textfield": "npm:@material/textfield@0.29.0",
     "@material/toolbar": "npm:@material/toolbar@0.29.0",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
@@ -111,6 +115,14 @@ System.config({
       "@material/elevation": "npm:@material/elevation@0.28.0",
       "@material/rtl": "npm:@material/rtl@0.1.8",
       "@material/theme": "npm:@material/theme@0.28.0",
+      "@material/typography": "npm:@material/typography@0.28.0"
+    },
+    "npm:@material/drawer@0.29.0": {
+      "@material/animation": "npm:@material/animation@0.25.0",
+      "@material/base": "npm:@material/base@0.29.0",
+      "@material/elevation": "npm:@material/elevation@0.28.0",
+      "@material/rtl": "npm:@material/rtl@0.29.0",
+      "@material/theme": "npm:@material/theme@0.29.0",
       "@material/typography": "npm:@material/typography@0.28.0"
     },
     "npm:@material/elevation@0.28.0": {
