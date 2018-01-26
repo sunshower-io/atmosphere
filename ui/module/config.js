@@ -13,9 +13,6 @@ System.config({
     "@material/textfield": {
       "main": "dist/mdc.textfield.js"
     },
-    "@material/drawer": {
-      "main": "dist/mdc.drawer.js"
-    },
     "golden-layout": {
       "main": "goldenlayout.js"
     },
@@ -31,7 +28,6 @@ System.config({
     }
   },
   map: {
-    "@material/drawer": "npm:@material/drawer@0.29.0",
     "@material/textfield": "npm:@material/textfield@0.29.0",
     "@material/toolbar": "npm:@material/toolbar@0.29.0",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
@@ -115,14 +111,6 @@ System.config({
       "@material/elevation": "npm:@material/elevation@0.28.0",
       "@material/rtl": "npm:@material/rtl@0.1.8",
       "@material/theme": "npm:@material/theme@0.28.0",
-      "@material/typography": "npm:@material/typography@0.28.0"
-    },
-    "npm:@material/drawer@0.29.0": {
-      "@material/animation": "npm:@material/animation@0.25.0",
-      "@material/base": "npm:@material/base@0.29.0",
-      "@material/elevation": "npm:@material/elevation@0.28.0",
-      "@material/rtl": "npm:@material/rtl@0.29.0",
-      "@material/theme": "npm:@material/theme@0.29.0",
       "@material/typography": "npm:@material/typography@0.28.0"
     },
     "npm:@material/elevation@0.28.0": {
@@ -575,6 +563,7 @@ System.config({
       "modules/main/routes/index.js",
       "modules/welcome/activate/activate.html!github:systemjs/plugin-text@0.0.8.js",
       "modules/welcome/activate/activate.js",
+      "modules/welcome/authentication-page.js",
       "modules/welcome/login/login.html!github:systemjs/plugin-text@0.0.8.js",
       "modules/welcome/login/login.js",
       "modules/welcome/signup/signup.html!github:systemjs/plugin-text@0.0.8.js",
@@ -699,17 +688,22 @@ System.config({
       "init/configure-plugins"
     ],
     "modules/welcome/activate/activate.js": [
-      "aurelia-framework",
-      "aire/api/security"
-    ],
-    "modules/welcome/login/login.js": [
-      "aurelia-dependency-injection",
       "aurelia-i18n",
       "aire/api/security",
       "aurelia-framework",
       "aurelia-router",
-      "init/configure-plugins",
-      "aire/api/storage"
+      "../authentication-page"
+    ],
+    "modules/welcome/authentication-page.js": [
+      "aire/api/storage",
+      "init/configure-plugins"
+    ],
+    "modules/welcome/login/login.js": [
+      "aurelia-i18n",
+      "aire/api/security",
+      "aurelia-framework",
+      "aurelia-router",
+      "../authentication-page"
     ],
     "modules/welcome/signup/signup.js": [
       "aurelia-dependency-injection",

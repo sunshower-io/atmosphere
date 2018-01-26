@@ -1,22 +1,25 @@
-import {autoinject, bindable} from "aurelia-framework";
+import {I18N} from "aurelia-i18n";
 import {SecurityService, User} from "aire/api/security";
+import {Aurelia, autoinject} from "aurelia-framework";
+import {Router} from "aurelia-router";
+import {AuthenticationPage} from "../authentication-page";
 
 @autoinject
-export class Activate {
+export class Activate extends AuthenticationPage{
 
-
-    @bindable
     private user: User = new User();
-    @bindable firstName: string;
 
 
-    constructor(private securityService: SecurityService) {
-
+    constructor(private locale: I18N,
+                router: Router,
+                aurelia: Aurelia,
+                securityService: SecurityService) {
+        super(router, aurelia, securityService);
     }
 
     async submit(): Promise<void> {
         let activation = await this.securityService.activate(this.user);
-        console.log(activation);
+        return this.authenticate(this.user);
     }
 
 
