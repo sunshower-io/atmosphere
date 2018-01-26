@@ -4,6 +4,7 @@ template
         text-field(type="text" value.bind="user.username" icon="face", t="[label]welcome.login.username")
         text-field(type="password" value.bind="user.password" icon="lock", t="[label]welcome.login.password")
         div.sunshower-button-holder
+            p(if.bind="error") ${error}
             button(type="submit")
                 | get going
     p if you're not quite there yet,
