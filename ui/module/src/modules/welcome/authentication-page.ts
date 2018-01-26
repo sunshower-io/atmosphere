@@ -21,8 +21,9 @@ export class AuthenticationPage {
                 authentication.token.value,
                 StorageMode.Local
             );
-            console.log(authentication.token);
-            await this.securityService.authenticateByToken(authentication.token);
+            console.log("FUCK" + JSON.stringify(authentication));
+            console.log("TOKEN", authentication.token);
+            // await this.securityService.authenticateByToken(authentication.token);
             this.router.navigate('/', {replace: true, trigger: false});
             configureClient(this.aurelia, authentication.token.value);
             await this.aurelia.setRoot('modules/main/index');
