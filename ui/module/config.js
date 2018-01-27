@@ -75,6 +75,9 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
+    "github:sunshower-io/aire@1.0.0": {
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1"
+    },
     "github:twbs/bootstrap@3.3.7": {
       "jquery": "npm:jquery@2.2.4"
     },

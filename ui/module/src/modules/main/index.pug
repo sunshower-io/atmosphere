@@ -1,19 +1,18 @@
 template
     toolbar
     drawer
-        p(slot="header")
-            | Header here
-
-        .mdc-list(slot="contents")
-            a.mdc-list-item.mdc-list-item--selected.demo-drawer-list-item(href='#')
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') inbox
-                | Inbox
-            a.mdc-list-item.demo-drawer-list-item(href='#')
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') star
-                | Star
-            a.mdc-list-item.demo-drawer-list-item(href='#')
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') send
-                | Sent Mail
-            a.mdc-list-item.demo-drawer-list-item(href='#')
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') drafts
-                | Drafts
+        div(slot="header")
+            div 
+                a ${user.username} 
+            div    
+                a(click.delegate="logout()") Logout
+        nav.mdc-list(slot="contents")
+            a(
+                repeat.for="row of router.navigation" 
+                href.bind="row.href" 
+                class="${row.isActive ? 'mdc-list-item--selected' : ''}"
+            ).mdc-list-item
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
+                | ${row.title} 
+        main(slot="main")    
+            router-view
