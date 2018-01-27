@@ -33,14 +33,14 @@ gulp.task('build-system', function() {
       "typescript": require('typescript')
     });
   }
-
+  
   return gulp.src(paths.dtsSrc.concat(paths.source))
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    .pipe(changed(paths.output, {extension: '.ts'}))
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(typescriptCompiler())
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
-    .pipe(gulp.dest(paths.output));
+      .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+      .pipe(changed(paths.output, {extension: '.ts'}))
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(typescriptCompiler())
+      .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
+      .pipe(gulp.dest(paths.output));
 });
 
 // copies changed html files to the output directory

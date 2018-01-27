@@ -1,3 +1,19 @@
 template
     toolbar
     drawer
+        p(slot="header")
+            | Header here
+
+        .mdc-list(slot="contents")
+            a.mdc-list-item.mdc-list-item--selected.demo-drawer-list-item(href='#')
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') inbox
+                | Inbox
+            a.mdc-list-item.demo-drawer-list-item(href='#')
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') star
+                | Star
+            a.mdc-list-item.demo-drawer-list-item(href='#')
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') send
+                | Sent Mail
+            a.mdc-list-item.demo-drawer-list-item(href='#')
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') drafts
+                | Drafts

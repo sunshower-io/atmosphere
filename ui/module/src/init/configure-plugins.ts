@@ -17,7 +17,8 @@ export function configureAuthenticated(
 
 export function configurePlugins(aurelia: Aurelia) {
     aurelia.use
-        .plugin('aire')
+        .plugin('aire', (instance) => {
+        })
         .plugin('aurelia-i18n', (instance) => {
             let aliases = ['t', 'i18n'];
             TCustomAttribute.configureAliases(aliases);
@@ -35,6 +36,7 @@ export function configurePlugins(aurelia: Aurelia) {
         .developmentLogging()
         .standardConfiguration();
 }
+
 
 function createClient(root: string, headers: Object): HttpClient {
 
