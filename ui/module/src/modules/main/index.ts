@@ -21,7 +21,7 @@ export class Sunshower {
                 name: 'plugins',
                 moduleId: 'modules/main/routes/plugins/index',
                 nav: true,
-                title: 'Plug-ins',
+                title: 'Plugins',
                 settings: {
                     t: "main.routes.plugins",
                     icon: "apps",
