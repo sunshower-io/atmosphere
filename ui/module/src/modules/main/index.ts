@@ -22,6 +22,13 @@ export class Sunshower extends StructureAwareRouter {
 
     }
 
+    navigate(parent: string, name: string) : void {
+        try {
+            this.router.navigate(parent + "/" + name);
+        } finally {
+            this.hide();
+        }
+    }
 
     shouldExpand(row: NavModel): boolean {
         return this.drawer.expanded && this.hasChildren(Main, row.config.name);

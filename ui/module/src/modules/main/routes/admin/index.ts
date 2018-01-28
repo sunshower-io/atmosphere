@@ -35,4 +35,6 @@ export class Administration {
         config.mapUnknownRoutes('modules/main/routes/admin/signups/signups');
         this.router = router;
     }
+    
+    
 }
