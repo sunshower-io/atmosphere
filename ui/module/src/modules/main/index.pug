@@ -11,9 +11,9 @@ template
             div(if.bind="drawer.expanded").mdc-list-group(repeat.for="row of router.navigation" click.delegate="hide()")
                 h3.mdc-list-group__subheader ${row.title} 
                     i(show.bind="shouldExpand(row)").material-icons expand_less 
-                ul.mdc-list--dense(show.bind="shouldExpand(row)")
+                ul.mdc-list--dense(if.bind="shouldExpand(row)")
                     li.mdc-list-item(
-                        repeat.for="subroute of row.navigation"
+                        repeat.for="subroute of children(row.navigation, row.name)"
                         class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"
                     ) 
                         a(href.bind="subroute.href") ${subroute.title}
