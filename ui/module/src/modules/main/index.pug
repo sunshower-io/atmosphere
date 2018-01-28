@@ -4,8 +4,10 @@ template
         div(slot="header")
             div 
                 a ${user.username} 
-            div    
-                a(click.delegate="logout()") Logout
+            div.header-action
+                a(click.delegate="logout()")
+                    i.material-icons eject
+                    | logout
         nav.mdc-list(slot="contents")
             a(
                 repeat.for="row of router.navigation" 
