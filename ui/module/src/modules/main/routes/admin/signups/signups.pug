@@ -1,2 +1,12 @@
 template
-    h1 signups
+    .sunshower-content-holder
+        h1 Approvals
+        ul.mdc-list
+            li.mdc-list-item(repeat.for="user of users")
+                i.mdc-list-item__graphic.material-icons(aria-hidden='true') face
+                span.mdc-list-item__text
+                    | ${user.firstName} ${user.lastName} (${user.username})
+                    .mdc-list-item__secondary-text
+                        | ${user.emailAddress}
+                a.mdc-list-item__meta.material-icons(class.bind="user.active ? 'success' : ''"
+                    click.delegate="approve(user)") check_circle
