@@ -17,6 +17,18 @@ export class Sunshower {
         config.title = 'Sunshower';
         config.map([
             {
+                route: 'plugins',
+                name: 'plugins',
+                moduleId: 'modules/main/routes/plugins/index',
+                nav: true,
+                title: 'Plug-ins',
+                settings: {
+                    t: "main.routes.plugins",
+                    icon: "apps",
+                    isActive: true
+                }
+            },
+            {
                 route: 'settings',
                 name: 'settings',
                 moduleId: 'modules/main/routes/settings/index',
@@ -24,7 +36,6 @@ export class Sunshower {
                 title: 'Settings',
                 settings: {
                     t: "main.routes.settings",
-                    isActive: true,
                     icon: 'settings',
                 }
             }, {
