@@ -1,6 +1,10 @@
 template 
     tab-panel
         nav(slot="tabs").mdc-tab-bar.mdc-tab-bar-scroller__scroll-frame__tabs
-            a.mdc-tab(href='#signups') Signups 
+            a.mdc-tab(
+                repeat.for="row of router.navigation" 
+                href.bind="row.href" 
+                class="${row.isActive ? 'mdc-tab--active' : ''}"
+            ) ${row.title} 
     div(slot="content")
-        div(id="signups")
+        router-view

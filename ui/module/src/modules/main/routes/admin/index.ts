@@ -17,8 +17,21 @@ export class Administration {
                     t: "main.routes.admin",
                     icon: 'home'
                 }
+            },
+
+            {
+                route: 'system',
+                name: 'system',
+                moduleId: 'modules/main/routes/admin/system/system',
+                nav: true,
+                title: 'System',
+                settings: {
+                    t: "main.routes.admin",
+                    icon: 'home'
+                }
             }
         ]);
+        
         config.mapUnknownRoutes('modules/main/routes/admin/signups/signups');
         this.router = router;
     }

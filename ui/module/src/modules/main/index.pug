@@ -1,18 +1,31 @@
 template
     toolbar
-    drawer
+    drawer(view-model.ref="drawer")
         div(slot="header")
-            div 
+            div
                 a ${user.username} 
-            div    
+            div
                 a(click.delegate="logout()") Logout
         nav.mdc-list(slot="contents")
+            // Drawer
+            div(if.bind="drawer.expanded").mdc-list-group(repeat.for="row of router.navigation" click.delegate="hide()")
+                h3.mdc-list-group__subheader ${row.title} 
+                    i(show.bind="shouldExpand(row)").material-icons expand_less 
+                ul.mdc-list--dense(show.bind="shouldExpand(row)")
+                    li.mdc-list-item(
+                        repeat.for="subroute of row.navigation"
+                        class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"
+                    ) 
+                        a(href.bind="subroute.href") ${subroute.title}
+                        
+            // Minified menu
             a(
-                repeat.for="row of router.navigation" 
-                href.bind="row.href" 
+                if.bind="!drawer.expanded"
+                repeat.for="row of router.navigation"
+                href.bind="row.href"
                 class="${row.isActive ? 'mdc-list-item--selected' : ''}"
             ).mdc-list-item
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true', ) ${row.settings.icon}
-                | ${row.title} 
-        main(slot="main")    
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
+
+        main(slot="main")
             router-view

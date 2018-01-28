@@ -1,69 +1,48 @@
 import {AuthenticationManager, User} from "aire/api/security";
 import {autoinject} from "aurelia-framework";
-import {Router, RouterConfiguration} from "aurelia-router";
+import {
+    NavModel, 
+    Router, 
+    RouterConfiguration
+} from "aurelia-router";
+import {Routes} from "routes";
+import {Drawer} from "aire/components/drawer";
+import {CompositionEngine} from "aurelia-templating";
+import {StructureAwareRouter} from 'aire/routing';
+import Admin = Routes.Admin;
+import Main = Routes.Main;
 
 @autoinject
-export class Sunshower {
+export class Sunshower extends StructureAwareRouter {
 
     private router: Router;
+    private drawer: Drawer;
 
     constructor(private user: User,
+                private compositionEngine: CompositionEngine,
                 private authenticationManager: AuthenticationManager) {
-
+        super();
 
     }
 
-    public configureRouter(config: RouterConfiguration, router: Router) {
-        config.title = 'Sunshower';
-        config.map([
-            {
-                route: 'settings',
-                name: 'settings',
-                moduleId: 'modules/main/routes/settings/index',
-                nav: true,
-                title: 'Settings',
-                settings: {
-                    t: "main.routes.settings",
-                    isActive: true,
-                    icon: 'settings',
-                }
-            }, {
-                route: 'users',
-                name: 'users',
-                moduleId: 'modules/main/routes/users/index',
-                nav: true,
-                title: 'Manage Users',
-                settings: {
-                    t: "main.routes.users",
-                    icon: 'person_outline'
-                }
-            }, {
-                route: 'main',
-                name: 'main',
-                moduleId: 'modules/main/routes/main/index',
-                nav: true,
-                title: 'Main',
-                settings: {
-                    t: "main.routes.main",
-                    icon: 'home'
-                }
-            },
-            {
-                route: 'administration',
-                name: 'administration',
-                moduleId: 'modules/main/routes/admin/index',
-                nav: true,
-                title: 'Administration',
-                settings: {
-                    t: "main.routes.admin",
-                    icon: 'home'
-                }
-            }
 
-        ]);
+    shouldExpand(row: NavModel) {
+        return this.drawer.expanded && row.isActive;
+    }
+
+
+    public configureRouter(config: RouterConfiguration, router: Router) {
+        this.routeConfig(Admin).isChildOf(Main, "admin");
+        config.title = 'Sunshower';
+        config.map(Routes.Main);
         config.mapUnknownRoutes('modules/main/routes/main/index');
         this.router = router;
     }
+    
+    private hide() {
+        this.drawer.close();
+    }
+    
 
     private async logout(): Promise<void> {
         await this.authenticationManager.logout();
