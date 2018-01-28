@@ -1,14 +1,23 @@
-import {SecurityService, User} from "aire/api/security";
-import {set, StorageMode} from "aire/api/storage";
-import {configureClient} from "init/configure-plugins";
+import {
+    User,
+    SecurityService
+} from "aire/api/security";
+
 import {Router} from "aurelia-router";
 import {Aurelia} from "aurelia-framework";
+import {set, StorageMode} from "aire/api/storage";
+import {configureClient} from "init/configure-plugins";
+import {configureAuthentication} from "main";
 
 export class AuthenticationPage {
 
     protected error :string;
 
-    constructor(private router: Router, private aurelia: Aurelia, protected securityService: SecurityService) {
+    constructor(
+        private router: Router, 
+        private aurelia: Aurelia, 
+        protected securityService: SecurityService
+    ) {
 
     }
 
@@ -21,8 +30,15 @@ export class AuthenticationPage {
                 authentication.token.value,
                 StorageMode.Local
             );
+            configureAuthentication(
+                this.aurelia, 
+                authentication
+            );
+            configureClient(
+                this.aurelia, 
+                authentication.token.value
+            );
             this.router.navigate('/', {replace: true, trigger: false});
-            configureClient(this.aurelia, authentication.token.value);
             await this.aurelia.setRoot('modules/main/index');
         } catch(err) {
             console.log(err);

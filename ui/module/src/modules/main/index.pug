@@ -12,7 +12,7 @@ template
                 href.bind="row.href" 
                 class="${row.isActive ? 'mdc-list-item--selected' : ''}"
             ).mdc-list-item
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
+                i.material-icons.mdc-list-item__graphic(aria-hidden='true', ) ${row.settings.icon}
                 | ${row.title} 
         main(slot="main")    
             router-view

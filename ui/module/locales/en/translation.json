@@ -18,6 +18,15 @@
       "username": "Username",
       "password": "Password"
     }
+  },
+  "main" : {
+    "routes" : {
+      "admin": "Administration",
+      "settings": "Settings",
+      "users": "Users",
+      "main" : "Main"
+    }
+    
   }
 }
   
