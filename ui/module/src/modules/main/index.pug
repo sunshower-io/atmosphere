@@ -4,8 +4,10 @@ template
         div(slot="header")
             div
                 a ${user.username} 
-            div
-                a(click.delegate="logout()") Logout
+            div.header-action
+                a(click.delegate="logout()") 
+                    i.material-icons eject
+                    | logout
         nav.mdc-list(slot="contents")
             // Drawer
             div(if.bind="drawer.expanded").mdc-list-group(repeat.for="row of router.navigation" click.delegate="hide()")
@@ -13,7 +15,7 @@ template
                     i(show.bind="shouldExpand(row)").material-icons expand_less 
                 ul.mdc-list--dense(if.bind="shouldExpand(row)")
                     li.mdc-list-item(
-                        repeat.for="subroute of children(row.navigation, row.name)"
+                        repeat.for="subroute of children(parentRoutes, row.config.name)"
                         class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"
                     ) 
                         a(href.bind="subroute.href") ${subroute.title}

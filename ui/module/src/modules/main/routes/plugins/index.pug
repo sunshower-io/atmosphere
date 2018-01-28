@@ -1,0 +1,8 @@
+template
+    .sunshower-card-holder
+        h1 Available Plugins
+        .mdc-card__horizontal-block
+            card(repeat.for="plugin of plugins"
+                title.bind="plugin.name"
+                text.bind="plugin.description")
+                //todo figure out linking
