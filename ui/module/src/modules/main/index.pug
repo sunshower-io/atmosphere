@@ -13,8 +13,11 @@ template
             div(if.bind="drawer.expanded").mdc-list-group(repeat.for="row of router.navigation")
                 i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
                 h3.mdc-list-group__subheader ${row.title} 
-                    i(show.bind="shouldExpand(row)" click.delegate="hide()").material-icons expand_less 
-                ul.mdc-list--dense(if.bind="shouldExpand(row)")
+                    i(
+                        show.bind="shouldExpand(row)" 
+                        click.delegate="toggle($index)" 
+                    ).material-icons expand_less 
+                ul.mdc-list--dense(if.bind="shouldExpand(row)" ref="parents[$index]")
                     li.mdc-list-item(
                         repeat.for="subroute of children(parentRoutes, row.config.name)"
                         class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"

@@ -4,22 +4,39 @@ import {NavModel, Router, RouterConfiguration} from "aurelia-router";
 import {Routes} from "routes";
 import {Drawer} from "aire/components/drawer";
 import {CompositionEngine} from "aurelia-templating";
-import {StructureAwareRouter} from 'aire/routing';
+import {
+    StructureAwareRouter
+} from 'aire/routing';
 import Admin = Routes.Admin;
 import Main = Routes.Main;
+import 'jquery';
 
 @autoinject
 export class Sunshower extends StructureAwareRouter {
 
-    private parentRoutes = Main;
     private router: Router;
     private drawer: Drawer;
+    private parentRoutes = Main;
+    private parents: Element[] = [];
+    private expanded: Map<number, boolean> = new Map<number, boolean>();
 
     constructor(private user: User,
                 private compositionEngine: CompositionEngine,
                 private authenticationManager: AuthenticationManager) {
         super();
 
+    }
+    
+    toggle(idx: number) : void {
+        let ul = this.parents[idx],
+            expanded = this.expanded.get(idx);
+        if(expanded) {
+            $(ul).slideUp();
+            this.expanded.set(idx, false);
+        } else {
+            $(ul).slideDown();
+            this.expanded.set(idx, true);
+        }
     }
 
     navigate(parent: string, name: string) : void {

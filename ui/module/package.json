@@ -93,7 +93,7 @@
       "font-awesome": "npm:font-awesome@4.6.3",
       "golden-layout": "npm:golden-layout@^1.5.9",
       "i18next": "npm:i18next@^10.3.0",
-      "jquery": "npm:jquery@^2.2.4",
+      "jquery": "npm:jquery@^3.3.1",
       "text": "github:systemjs/plugin-text@^0.0.8"
     },
     "devDependencies": {}

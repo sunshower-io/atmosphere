@@ -63,7 +63,7 @@ System.config({
     "font-awesome": "npm:font-awesome@4.6.3",
     "golden-layout": "npm:golden-layout@1.5.9",
     "i18next": "npm:i18next@10.3.0",
-    "jquery": "npm:jquery@2.2.4",
+    "jquery": "npm:jquery@3.3.1",
     "material-components-web": "npm:material-components-web@0.28.0",
     "phosphor-dockpanel": "npm:phosphor-dockpanel@0.9.7",
     "sunshower-io/aire": "github:sunshower-io/aire@1.0.0",
@@ -87,7 +87,7 @@ System.config({
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1"
     },
     "github:twbs/bootstrap@3.3.7": {
-      "jquery": "npm:jquery@2.2.4"
+      "jquery": "npm:jquery@3.3.1"
     },
     "npm:@material/button@0.28.0": {
       "@material/elevation": "npm:@material/elevation@0.28.0",
@@ -439,7 +439,7 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.31"
     },
     "npm:golden-layout@1.5.9": {
-      "jquery": "npm:jquery@2.2.4"
+      "jquery": "npm:jquery@3.3.1"
     },
     "npm:i18next@10.3.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
