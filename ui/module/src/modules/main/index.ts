@@ -19,6 +19,7 @@ export class Sunshower extends StructureAwareRouter {
     private parentRoutes = Main;
     private parents: Element[] = [];
     private expanded: Map<number, boolean> = new Map<number, boolean>();
+    private isFirstTIme: boolean = true;
 
     constructor(private user: User,
                 private compositionEngine: CompositionEngine,
@@ -32,8 +33,10 @@ export class Sunshower extends StructureAwareRouter {
             expanded = this.expanded.get(idx);
         if(expanded) {
             $(ul).slideUp();
+            $(ul.parentNode).removeClass('expanded');
             this.expanded.set(idx, false);
         } else {
+            $(ul.parentNode).addClass('expanded');
             $(ul).slideDown();
             this.expanded.set(idx, true);
         }
