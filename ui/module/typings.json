@@ -28,6 +28,7 @@
     "i18next": "registry:dt/i18next#2.3.4+20170122020951"
   },
   "globalDependencies": {
-    "index": "github:sunshower-io/aire/src/typings/index.d.ts"
+    "index": "github:sunshower-io/aire/src/typings/index.d.ts",
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111"
   }
 }

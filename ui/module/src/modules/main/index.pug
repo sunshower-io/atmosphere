@@ -15,7 +15,7 @@ template
                     i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
                     span.mdc-list-item__text ${row.title}
                     i.mdc-list-item__meta.material-icons(show.bind="shouldExpand(row)"
-                        click.delegate="hide()") expand_less
+                        click.delegate="toggle($index)") expand_less
                 .mdc-list--dense(if.bind="shouldExpand(row)" ref="parents[$index]")
                     .mdc-list-item(
                         repeat.for="subroute of children(parentRoutes, row.config.name)"
