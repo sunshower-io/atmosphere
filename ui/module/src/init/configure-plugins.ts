@@ -39,7 +39,6 @@ export function configurePlugins(aurelia: Aurelia) {
 
 
 function createClient(root: string, headers: Object): HttpClient {
-
     let client = new HttpClient();
     client.configure(cfg => {
         cfg.useStandardConfiguration()
@@ -75,6 +74,7 @@ export function configureClient(aurelia: Aurelia, authToken?: string): HttpClien
     if (authToken) {
         headers['X-AUTH-TOKEN'] = authToken;
     }
+    aurelia.container.unregister(HttpClient);
     let client = createClient("/kernel/api/v1/", headers);
     aurelia.container.registerInstance(HttpClient, client);
     return client;

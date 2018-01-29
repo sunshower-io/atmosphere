@@ -3,12 +3,17 @@ template
     form(submit.delegate="signup()" autocomplete="off")
         text-field(
             type="text" 
-            value.bind="user.username", 
+            value.bind="request.username", 
             t="[label]welcome.login.username"
         )
         text-field(
+            type="text"
+            value.bind="request.emailAddress",
+            t="[label]welcome.login.emailAddress"
+        )
+        text-field(
             type="password" 
-            value.bind="user.password", 
+            value.bind="request.password", 
             t="[label]welcome.login.password"
         )
         div.sunshower-button-holder
