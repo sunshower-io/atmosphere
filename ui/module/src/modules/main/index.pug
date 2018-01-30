@@ -2,12 +2,12 @@ template
     toolbar
     drawer(view-model.ref="drawer")
         div(slot="header")
-            div
-                a ${user.username} 
-            div.header-action
-                a(click.delegate="logout()") 
+            div.header-info
+                a(click.delegate="logout()" title="logout" aria-label="logout" role="link")
                     i.material-icons eject
-                    | logout
+                a ${user.username}
+            div.header-action
+                //todo textfield
         nav.mdc-list(slot="contents")
             // Drawer
             div.mdc-list-group(if.bind="drawer.expanded" repeat.for="row of router.navigation")
