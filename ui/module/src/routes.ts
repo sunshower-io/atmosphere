@@ -55,7 +55,7 @@ export module Routes {
             title: 'Administration',
             settings: {
                 t: "main.routes.admin",
-                icon: 'home'
+                icon: 'build'
             }
         }
 
@@ -70,7 +70,7 @@ export module Routes {
             title: 'Signups',
             settings: {
                 t: "main.routes.admin",
-                icon: 'home'
+                icon: 'build'
             }
         },
 
@@ -82,7 +82,7 @@ export module Routes {
             title: 'System',
             settings: {
                 t: "main.routes.admin",
-                icon: 'home'
+                icon: 'build'
             }
         }
     ];
