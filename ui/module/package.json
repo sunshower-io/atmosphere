@@ -64,6 +64,7 @@
   },
   "jspm": {
     "dependencies": {
+      "@material/checkbox": "npm:@material/checkbox@^0.29.0",
       "@material/drawer": "npm:@material/drawer@^0.29.0",
       "@material/tabs": "npm:@material/tabs@^0.29.0",
       "@material/textfield": "npm:@material/textfield@^0.29.0",

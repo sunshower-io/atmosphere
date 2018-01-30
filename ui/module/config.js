@@ -34,6 +34,7 @@ System.config({
     }
   },
   map: {
+    "@material/checkbox": "npm:@material/checkbox@0.29.0",
     "@material/drawer": "npm:@material/drawer@0.29.0",
     "@material/tabs": "npm:@material/tabs@0.29.0",
     "@material/textfield": "npm:@material/textfield@0.29.0",
@@ -108,6 +109,15 @@ System.config({
       "@material/rtl": "npm:@material/rtl@0.1.8",
       "@material/selection-control": "npm:@material/selection-control@0.28.0",
       "@material/theme": "npm:@material/theme@0.28.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:@material/checkbox@0.29.0": {
+      "@material/animation": "npm:@material/animation@0.25.0",
+      "@material/base": "npm:@material/base@0.29.0",
+      "@material/ripple": "npm:@material/ripple@0.29.0",
+      "@material/rtl": "npm:@material/rtl@0.29.0",
+      "@material/selection-control": "npm:@material/selection-control@0.29.0",
+      "@material/theme": "npm:@material/theme@0.29.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:@material/dialog@0.28.0": {
@@ -217,6 +227,10 @@ System.config({
     },
     "npm:@material/selection-control@0.28.0": {
       "@material/ripple": "npm:@material/ripple@0.28.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:@material/selection-control@0.29.0": {
+      "@material/ripple": "npm:@material/ripple@0.29.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:@material/slider@0.28.0": {
