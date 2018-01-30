@@ -1,27 +1,27 @@
-import {autoinject} from "aurelia-dependency-injection";
-import {SecurityService, User} from "aire/api/security";
-import {Aurelia} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
+import {autoinject} from "aurelia-dependency-injection";
+import {RegistrationRequest} from "lib/auth/signup/model";
+import {RegistrationService} from "lib/auth/signup/service";
 
 @autoinject
 export class Signup {
 
-    private user: User = new User();
+    private request: RegistrationRequest = new RegistrationRequest();
 
     constructor(
         private i18n: I18N,
-        private securityService: SecurityService
+        private service: RegistrationService
     ) {
         
     }
 
     attached() {
+        
     }
 
-    signup() {
+    async signup() {
+        let result = await this.service.register(this.request);
     }
 
-    login() {
-    }
 
 }
