@@ -3,6 +3,6 @@ template
         h1 Available Plugins
         .mdc-card__horizontal-block
             card(repeat.for="plugin of plugins"
-                title.bind="plugin.name"
-                text.bind="plugin.description")
+                title.bind="plugin.coordinates.name"
+                text.bind="plugin.coordinates.group")
                 //todo figure out linking

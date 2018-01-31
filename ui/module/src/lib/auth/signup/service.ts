@@ -15,6 +15,18 @@ export class RegistrationService {
         
     }
     
+    async approve(id: string) : Promise<string> {
+        log.debug("approving registration with id:", id);
+        try {
+            
+            let r = await this.client.fetch(`signup/${id}/approve`),
+                s = await r.json();
+            return s.value;
+        } catch(e) {
+            log.debug("encountered error while approving signup: ", e);
+        }
+    }
+    
     async list() : Promise<RegistrationRequest[]> {
         try {
             let r = await this.client.fetch('signup'),

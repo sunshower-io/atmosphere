@@ -5,12 +5,13 @@ template
             li.mdc-list-item(repeat.for="user of users")
                 span.mdc-list-item__graphic
                     .mdc-form-field
-                        .mdc-checkbox
-                            input.mdc-checkbox__native-control(type='checkbox')
-                            .mdc-checkbox__background
-                                svg.mdc-checkbox__checkmark(viewbox='0 0 24 24')
-                                    path.mdc-checkbox__checkmark__path(fill='none', stroke='white', d='M1.73,12.91 8.1,19.28 22.79,4.59')
-                                .mdc-checkbox__mixedmark
+                        checkbox(label.bind="user.userName", value-changed.delegate="approve(user)")
+                        //.mdc-checkbox
+                        //    input.mdc-checkbox__native-control(type='checkbox')
+                        //    .mdc-checkbox__background
+                        //        svg.mdc-checkbox__checkmark(viewbox='0 0 24 24')
+                        //            path.mdc-checkbox__checkmark__path(fill='none', stroke='white', d='M1.73,12.91 8.1,19.28 22.79,4.59')
+                        //        .mdc-checkbox__mixedmark
                         label ${user.userName}
 
                         //.mdc-form-field

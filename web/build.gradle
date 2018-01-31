@@ -40,21 +40,26 @@ configurations {
 
 dependencies {
 
+    compileOnly 'javax.servlet:javax.servlet-api'
+
+    compileOnly group: 'javax', name: 'javaee-api', version: '7.0'
+    compileOnly group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2'
+    
     compileOnly 'io.sunshower.kernel:kernel-api'
     testCompile 'io.sunshower.kernel:kernel-api'
     ui project(path: ':ui', configuration: 'web')
     
-    compile 'javax.inject:javax.inject'
-    compile 'de.neuland-bfi:jade4j:1.2.7'
-    compile 'de.neuland-bfi:spring-jade4j:1.2.7'
-
+    compileOnly 'javax.inject:javax.inject'
+    testCompileOnly 'javax.inject:javax.inject'
     libraries 'de.neuland-bfi:jade4j:1.2.7'
     libraries 'de.neuland-bfi:spring-jade4j:1.2.7'
+    compile 'de.neuland-bfi:spring-jade4j:1.2.7'
+    compile 'de.neuland-bfi:jade4j:1.2.7'
 
     compileOnly 'io.sunshower.kernel:kernel-api:1.0.0-SNAPSHOT'
     compileOnly 'io.sunshower.kernel:kernel-wildfly-provider:1.0.0-SNAPSHOT'
 
-    compile 'org.springframework:spring-webmvc'
+    compileOnly 'org.springframework:spring-webmvc'
 
     wildfly 'io.sunshower.wildfly:sunshower-wildfly:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
@@ -113,7 +118,8 @@ test.dependsOn unpackWildfly
 test.mustRunAfter unpackWildfly
 
 war {
-    classpath = configurations.libraries
+    
+    classpath += configurations.libraries
     classpath += configurations.transitiveLibraries
 }
 

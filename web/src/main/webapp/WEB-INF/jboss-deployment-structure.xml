@@ -1,11 +1,48 @@
 <jboss-deployment-structure>
   <deployment>
     <dependencies>
-      <module name="io.sunshower.kernel"/>
-      <module name="org.springframework.context" />
+      <!--<module name="io.sunshower.kernel"/>-->
+      <!--<module name="org.springframework.context" />-->
+      <!--<module name="org.springframework.web" />-->
+      <!--<module name="deployment.kernel-wildfly-provider-1.0.0-SNAPSHOT.war"/>-->
+      <!--<module name="deployment.sunshower-web-1.0.0-SNAPSHOT.war" export="true"/>-->
+
+
+
+      <module name="com.h2database.h2" />
+      <module name="javax.management.j2ee.api" />
+      <module name="pools.db.hikari" />
+      <module name="javax.servlet.api" services="export" export="true" />
+      <module name="org.postgresql.driver" />
+      <module name="javax.validation.api" />
+      <module name="org.yaml.snakeyaml" />
+      <module name="org.eclipse.moxy" />
+      <module name="io.sunshower.kernel" services="export" export="true" />
+      <module name="io.reactivex"/>
+      <module name="org.flywaydb"/>
+      <module name="org.apache.ws.security"/>
+      <module name="org.hibernate.latest"/>
+      <module name="org.hibernate.search.engine"/>
+      <module name="org.hibernate.search.orm"/>
+      <module name="org.apache.ignite" />
       <module name="org.springframework.web" />
-      <module name="deployment.kernel-wildfly-provider-1.0.0-SNAPSHOT.war"/>
+      <module name="org.springframework.orm" />
+      <module name="org.springframework.oxm" />
+      <module name="org.springframework.aop" />
+      <module name="org.springframework.beans" />
+      <module name="org.springframework.core" />
+      <module name="org.springframework.jdbc" />
+      <module name="org.springframework.context" />
+      <module name="org.springframework.tx" />
+      <module name="org.springframework.context-support" />
+      <module name="org.springframework.expression" />
+      <module name="org.springframework.core" />
+      <module name="org.springframework.security" />
+      <module name="org.jboss.resteasy.resteasy-spring" />
+
       <module name="deployment.sunshower-web-1.0.0-SNAPSHOT.war" export="true"/>
+      <module name="deployment.kernel-wildfly-provider-1.0.0-SNAPSHOT.war" />
+      <module name="io.sunshower.kernel" services="export" export="true" />
     </dependencies>
   </deployment>
 </jboss-deployment-structure>

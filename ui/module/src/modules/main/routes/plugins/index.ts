@@ -1,29 +1,25 @@
+import {PluginService, Extension} from "lib/plugins";
+import {autoinject} from "aurelia-dependency-injection";
+
+@autoinject
 export class Plugins {
 
-    private plugins : Plugin[];
+    private plugins : Extension[];
+    
+    constructor(private pluginService: PluginService) {
+        
+    }
 
-    attached() {
-
-        this.plugins = this.getPlugins();
-
-        this.plugins.push(new Plugin('See More', '', ''))
+    async attached() {
+        this.plugins = await this.getPlugins();
+        console.log(this.plugins);
     }
 
 
-    getPlugins() : Plugin[] {
-        return [
-            new Plugin('Atmosphere', 'Manage plugins, settings, permissions and more', ''),
-            new Plugin('Stratosphere', 'Gain high-level insights into any infrastructure on any cloud', '')
-        ];
+    async getPlugins() : Promise<Extension[]> {
+        return await this.pluginService.list();
     }
 }
 
 
 
-export class Plugin {
-
-    constructor(private name : string,
-                private description : string,
-                private link : any) {}
-
-}
