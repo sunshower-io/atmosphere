@@ -11,6 +11,7 @@ buildscript {
 
 apply plugin: 'war'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 apply plugin: 'com.bmuschko.cargo'
 
 
@@ -64,6 +65,7 @@ dependencies {
     wildfly 'io.sunshower.wildfly:sunshower-wildfly:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
     plugins 'io.sunshower.deployment:sunshower-theme:1.0.0-SNAPSHOT@war'
+    plugins 'io.sunshower.atmosphere:sunshower-atmosphere:1.0.0-SNAPSHOT@war'
     plugins 'io.sunshower.kernel:kernel-wildfly-provider:1.0.0-SNAPSHOT@war'
 
     testCompile 'io.sunshower.test:test-common:1.0.0-SNAPSHOT'
@@ -102,6 +104,7 @@ task unpackPlugins(type: Copy, dependsOn: 'unpackWildfly') {
 
 war {
     dependsOn configurations.ui
+    archiveName = "atmosphere-web-${project.version}.war"
     from {
         configurations.ui.collect { zipTree(it) }
     }
@@ -124,6 +127,25 @@ war {
 }
 
 
+publishing {
+    repositories {
+        maven {
+            url mavenRepositoryUrl
+
+            credentials {
+                username mavenRepositoryUsername
+                password mavenRepositoryPassword
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            artifactId = "atmosphere-web"
+            from components.web
+        }
+    }
+}
 
 cargo {
     containerId = 'wildfly11x'
