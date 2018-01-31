@@ -7,6 +7,7 @@ module.exports = {
         'config.js',
         'favicon.ico',
         'LICENSE',
+        'locales/en/translation.json',
         'jspm_packages/github/sunshower-io/aire@1.0.0/**/*',
         'jspm_packages/github/sunshower-io/aire@1.0.0.js',
         'jspm_packages/npm/golden-layout@1.5.9/goldenlayout.js',

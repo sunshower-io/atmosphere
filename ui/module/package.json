@@ -26,7 +26,7 @@
     "e2e": "gulp serve e2e"
   },
   "devDependencies": {
-    "aurelia-bundler": "^0.4.0",
+    "aurelia-bundler": "^0.7.0",
     "aurelia-protractor-plugin": "^1.0.0",
     "aurelia-tools": "^1.0.0",
     "browser-sync": "^2.17.5",
@@ -64,6 +64,7 @@
   },
   "jspm": {
     "dependencies": {
+      "@material/button": "npm:@material/button@^0.29.0",
       "@material/checkbox": "npm:@material/checkbox@^0.29.0",
       "@material/drawer": "npm:@material/drawer@^0.29.0",
       "@material/tabs": "npm:@material/tabs@^0.29.0",
