@@ -26,7 +26,8 @@ export module Routes {
                 isActive: true,
                 icon: 'settings',
             }
-        }, {
+        },
+        {
             route: 'users',
             name: 'users',
             moduleId: 'modules/main/routes/users/index',
@@ -36,7 +37,8 @@ export module Routes {
                 t: "main.routes.users",
                 icon: 'person_outline'
             }
-        }, {
+        },
+        {
             route: 'main',
             name: 'main',
             moduleId: 'modules/main/routes/main/index',
