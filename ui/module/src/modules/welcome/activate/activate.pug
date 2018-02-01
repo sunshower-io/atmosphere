@@ -1,16 +1,14 @@
 template
-    h2  
+    h2(t="welcome.login.activateHeader")
     form(submit.delegate="submit()" autocomplete="false")
-        text-field(type="text" value.bind="user.firstName", t="[label]welcome.activate.firstname")
-        text-field(type="text" value.bind="user.lastName", t="[label]welcome.activate.lastname")
-        text-field(type="text" value.bind="user.phoneNumber", t="[label]welcome.activate.phoneNumber")
+        //text-field(type="text" value.bind="user.firstName", t="[label]welcome.activate.firstname")
+        //text-field(type="text" value.bind="user.lastName", t="[label]welcome.activate.lastname")
+        //text-field(type="text" value.bind="user.phoneNumber", t="[label]welcome.activate.phoneNumber")
         text-field(type="text" value.bind="user.username", t="[label]welcome.activate.username")
         text-field(type="text" value.bind="user.emailAddress", t="[label]welcome.activate.email")
         text-field(type="password" value.bind="user.password", t="[label]welcome.activate.password")
         div.sunshower-button-holder
-            button(type="submit")
-                | get going
-    p heck, go
-        | #{' '}
-        a read the docs
-        |  -- we'll wait
+            p(if.bind="message") ${message}
+            button(type="submit" t="welcome.login.submit")
+    p
+        a(t="welcome.login.docsLink")
