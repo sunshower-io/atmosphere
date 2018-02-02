@@ -65,7 +65,7 @@ dependencies {
     wildfly 'io.sunshower.wildfly:sunshower-wildfly:1.0.0-SNAPSHOT@zip'
     plugins 'io.sunshower.deployment:sunshower-web:1.0.0-SNAPSHOT@war'
     plugins 'io.sunshower.deployment:sunshower-theme:1.0.0-SNAPSHOT@war'
-    plugins 'io.sunshower.atmosphere:sunshower-atmosphere:1.0.0-SNAPSHOT@war'
+//    plugins 'io.sunshower.atmosphere:sunshower-atmosphere:1.0.0-SNAPSHOT@war'
     plugins 'io.sunshower.kernel:kernel-wildfly-provider:1.0.0-SNAPSHOT@war'
 
     testCompile 'io.sunshower.test:test-common:1.0.0-SNAPSHOT'
