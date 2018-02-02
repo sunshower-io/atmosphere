@@ -5,7 +5,7 @@ export class Administration {
     private router: Router;
 
     public configureRouter(config: RouterConfiguration, router: Router) {
-        config.title = 'Administration';
+        // config.title = 'Administration';
         config.map([
             {
                 route: 'signups',

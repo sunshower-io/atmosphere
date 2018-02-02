@@ -21,6 +21,7 @@ export class RegistrationRequest implements Serializable {
 
     constructor(o ?: any) {
         if (o) {
+            this.username = o['username'];
             this.lastName = o['last-name'];
             this.firstName = o['first-name'];
             this.emailAddress = o['email-address'];

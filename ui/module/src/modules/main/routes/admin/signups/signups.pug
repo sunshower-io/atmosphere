@@ -5,32 +5,7 @@ template
             li.mdc-list-item(repeat.for="user of users")
                 span.mdc-list-item__graphic
                     .mdc-form-field
-                        checkbox(label.bind="user.userName", value-changed.delegate="approve(user)")
-                        //.mdc-checkbox
-                        //    input.mdc-checkbox__native-control(type='checkbox')
-                        //    .mdc-checkbox__background
-                        //        svg.mdc-checkbox__checkmark(viewbox='0 0 24 24')
-                        //            path.mdc-checkbox__checkmark__path(fill='none', stroke='white', d='M1.73,12.91 8.1,19.28 22.79,4.59')
-                        //        .mdc-checkbox__mixedmark
-                        label ${user.userName}
+                        checkbox(value-changed.delegate="approve(user)")
 
-                        //.mdc-form-field
-                    //    .mdc-checkbox
-                    //        input(type="checkbox").mdc-checkbox__native-control
-                            
-                    //i.material-icons account_circle
-                    //.mdc-checkbox.mdc-checkbox--upgraded.mdc-ripple-upgraded.mdc-ripple-upgraded--unbounded(style='--mdc-ripple-fg-size:24px; --mdc-ripple-fg-scale:2.77369; --mdc-ripple-left:8px; --mdc-ripple-top:8px;')
-                    //    input#toggle-rtl.mdc-checkbox__native-control(type='checkbox', aria-labelledby='toggle-rtl-label')
-                    //    .mdc-checkbox__background
-                    //        svg.mdc-checkbox__checkmark(viewbox='0 0 24 24')
-                    //            path.mdc-checkbox__checkmark__path(fill='none', stroke='white', d='M1.73,12.91 8.1,19.28 22.79,4.59')
-                    //        .mdc-checkbox__mixedmark
-
-                span.mdc-list-item__text ${user.emailAddress} 
-                //i.mdc-list-item__graphic.material-icons(aria-hidden='true') face
-                //span.mdc-list-item__text
-                //    | ${user.firstName} ${user.lastName} (${user.username})
-                //    .mdc-list-item__secondary-text
-                //        | ${user.emailAddress}
-                //a.mdc-list-item__meta.material-icons(class.bind="user.active ? 'success' : ''"
-                //    click.delegate="approve(user)") check_circle
+                span.mdc-list-item__text ${user.username}
+                    span.mdc-list-item__secondary-text ${user.emailAddress}
