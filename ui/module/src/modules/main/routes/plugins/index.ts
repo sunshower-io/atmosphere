@@ -17,13 +17,13 @@ export class Plugins {
         console.log("attached");
         this.plugins = await this.getPlugins();
         for (let i = 0; i < this.plugins.length; i++) {
-            // let plugin = this.plugins[i];
-            // if ((plugin as any).coordinates.name === 'Atmosphere') {
-            //     (this.plugins[i] as any).coordinates.group = 'Manage plugins, settings, permissions and more';
-            // }
-            // if ((plugin as any).coordinates.name === 'Stratosphere') {
-            //     (this.plugins[i] as any).coordinates.group = 'Gain high-level insights into any infrastructure on any cloud';
-            // }
+            let plugin = this.plugins[i];
+            if ((plugin as any).coordinates.name.toLowerCase() === 'atmosphere') {
+                (this.plugins[i] as any).coordinates.group = 'Manage plugins, settings, permissions and more';
+            }
+            if ((plugin as any).coordinates.name.toLowerCase() === 'stratosphere') {
+                (this.plugins[i] as any).coordinates.group = 'Gain high-level insights into any infrastructure on any cloud';
+            }
         }
         console.log(this.plugins);
     }

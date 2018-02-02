@@ -4,6 +4,9 @@ template
         .mdc-card__horizontal-block
             card(repeat.for="plugin of plugins"
                 title.bind="plugin.coordinates.name"
-                text.bind="plugin.coordinates.group")
-            card(title.bind="See More"
-                text.bind="")
+                text.bind="plugin.coordinates.group"
+                isLink.bind="true"
+                links.bind="{text: null, action: plugin.coordinates.location}")
+            card(title="See More"
+                text="..."
+                isLink.bind="true")
