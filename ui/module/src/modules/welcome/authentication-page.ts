@@ -11,7 +11,7 @@ import {configureAuthentication} from "main";
 
 export class AuthenticationPage {
 
-    protected error :string;
+    protected message : string;
 
     constructor(
         private router: Router, 
@@ -41,12 +41,13 @@ export class AuthenticationPage {
             this.router.navigate('/', {replace: true, trigger: false});
             await this.aurelia.setRoot('modules/main/index');
         } catch(err) {
-            console.log(err);
-            this.error = "We're sorry, we weren't able to log you in.";
+            this.message = "We're sorry, we weren't able to log you in.";
             if (err.status === 404) {
-                this.error += "\nYou may not be approved."
+                this.message += "\nYou may not be approved."
             } else if (err.status == 401) {
-                this.error += "\nPlease check your username/password."
+                this.message += "\nPlease check your username/password."
+            } else {
+                this.message += "\nSomething has gone awry."
             }
             return Promise.reject(err);
         }

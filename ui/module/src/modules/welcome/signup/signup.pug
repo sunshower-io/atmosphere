@@ -1,5 +1,5 @@
 template
-    h2 we'd love it if you'd sign up
+    h2(t="welcome.login.signupHeader")
     form(submit.delegate="signup()" autocomplete="off")
         text-field(
             type="text" 
@@ -17,12 +17,9 @@ template
             t="[label]welcome.login.password"
         )
         div.sunshower-button-holder
+            p(if.bind="message") ${message}
             button(type="submit" t="welcome.login.submit")
-                | get going
-    p not sure if you want to?
-        | #{' '}
-        a read the docs
-        |  -- we'll wait
-    p if you've already done this and been approved,
-        | #{' '}
-        a(href="#login") go log in
+    //p
+    //    a(t="welcome.login.docsLink")
+    p
+        a(href="#login" t="welcome.login.loginLink")

@@ -24,6 +24,7 @@ export class RegistrationService {
             return s.value;
         } catch(e) {
             log.debug("encountered error while approving signup: ", e);
+            throw e;
         }
     }
     
@@ -48,6 +49,7 @@ export class RegistrationService {
             });
         } catch(e) {
             log.debug("failed to register user.  Reason: ", e);
+            throw e;
         }
     }
     

@@ -17,7 +17,14 @@
     "login": {
       "username": "Username",
       "password": "Password",
-      "submit": "fuck"
+      "emailAddress": "Email Address",
+      "submit": "get going",
+      "docsLink": "not sure if you want to? read the docs -- we'll wait",
+      "signupLink": "if you're not quite there yet, step zero is to sign up",
+      "loginLink": "if you've already done this and been approved, go log in",
+      "signupHeader": "we'd love it if you'd sign up",
+      "loginHeader": "first step? log in",
+      "activateHeader": "set up an admin account to get started"
     }
   },
   "main" : {
