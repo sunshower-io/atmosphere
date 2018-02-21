@@ -1,1 +1,1 @@
-include 'web' //'ui' //, 'core', 'test-plugin'
+include 'web', 'ui' //, 'test-plugin'
