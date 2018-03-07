@@ -1,5 +1,9 @@
 <jboss-deployment-structure>
   <deployment>
+    <exclusions>
+      <module name="org.jboss.resteasy.resteasy-jaxb-provider" />
+      <module name="org.jboss.resteasy.resteasy-jackson-provider" />
+    </exclusions>
     <dependencies>
       <!--<module name="io.sunshower.kernel"/>-->
       <!--<module name="org.springframework.context" />-->

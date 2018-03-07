@@ -645,6 +645,7 @@ System.config({
       "modules/welcome/welcome.html!github:systemjs/plugin-text@0.0.8.js",
       "modules/welcome/welcome.js",
       "routes.js",
+      "stratosphere.css!github:systemjs/plugin-text@0.0.8.js",
       "style-guide.html!github:systemjs/plugin-text@0.0.8.js",
       "style-guide.js"
     ],

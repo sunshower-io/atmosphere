@@ -3,6 +3,7 @@ var outputRoot = 'dist/';
 var exporSrvtRoot = 'export/'
 
 module.exports = {
+    scss: "themes/inventory/**/*.scss",
     root: appRoot,
     pug: appRoot + '**/*.pug',
     source: appRoot + '**/*.ts',
