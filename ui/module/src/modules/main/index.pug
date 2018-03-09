@@ -4,7 +4,7 @@ template
         div(slot="header")
             div.header-info
                 a(click.delegate="logout()" title="logout" aria-label="logout" role="link")
-                    i.material-icons eject
+                    i.la.la-fw.la-eject.mdc-list-item__graphic
                 a ${user.username}
             div.header-action
                 //todo textfield
@@ -12,26 +12,26 @@ template
             // Drawer
             div.mdc-list-group(if.bind="drawer.expanded" repeat.for="row of router.navigation")
                 h3.mdc-list-group__subheader.mdc-list-item
-                    i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
+                    i.la.la-fw.mdc-list-item__graphic(aria-hidden='true' class.bind="row.settings.icon")
                     a.mdc-list-item__text ${row.title}
-                    i.mdc-list-item__meta.material-icons.sunshower-toggler(show.bind="shouldExpand(row)"
-                        click.delegate="toggle($index)") expand_less
+                    i.mdc-list-item__meta.la.la-fw.sunshower-toggler(show.bind="shouldExpand(row)"
+                    click.delegate="toggle($index)" class.bind="iconClass")
                 .mdc-list--dense(if.bind="shouldExpand(row)" ref="parents[$index]" style="display:none;")
                     .mdc-list-item(
-                        repeat.for="subroute of children(parentRoutes, row.config.name)"
-                        class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"
-                        click.delegate="navigate(row.href, subroute.name)"
-                    ) 
+                    repeat.for="subroute of children(parentRoutes, row.config.name)"
+                    class="${subroute.isActive ? 'mdc-list-item--selected' : ''}"
+                    click.delegate="navigate(row.href, subroute.name)"
+                    )
                         .mdc-list-item__text ${subroute.title}
-                        
+
             // Minified menu
             a(
-                if.bind="!drawer.expanded"
-                repeat.for="row of router.navigation"
-                href.bind="row.href"
-                class="${row.isActive ? 'mdc-list-item--selected' : ''}"
+            if.bind="!drawer.expanded"
+            repeat.for="row of router.navigation"
+            href.bind="row.href"
+            class="${row.isActive ? 'mdc-list-item--selected' : ''}"
             ).mdc-list-item
-                i.material-icons.mdc-list-item__graphic(aria-hidden='true') ${row.settings.icon}
+                i.la.la-fw.mdc-list-item__graphic(aria-hidden='true' class.bind="row.settings.icon")
 
         main(slot="main")
             router-view
