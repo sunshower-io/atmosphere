@@ -25,7 +25,7 @@
       <module name="io.reactivex"/>
       <module name="org.flywaydb"/>
       <module name="org.apache.ws.security"/>
-      <module name="org.hibernate.latest"/>
+      <module name="org.hibernate"/>
       <module name="org.hibernate.search.engine"/>
       <module name="org.hibernate.search.orm"/>
       <module name="org.apache.ignite" />
