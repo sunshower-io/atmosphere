@@ -27,7 +27,8 @@ RUN find . -name logging.properties | xargs rm
 #RUN jspm config registries.github.remote https://github.jspm.io
 #RUN git config --global url."https://$GITHUB_TOKEN@github.com/".insteadOf git@github.com
 #RUN npm install gulp && npm install && jspm install -y
-RUN cd /home/sunshower/$PROJECT_NAME 
+
+COPY . /home/sunshower/$PROJECT_NAME
 WORKDIR /home/sunshower/$PROJECT_NAME
 ENTRYPOINT ./scripts/build.sh
 #ENTRYPOINT SUNSHOWER_HOME=/home/sunshower/sunshower/ && ./bin/standalone.sh -b=0.0.0.0 -bmanagement=0.0.0.0 -Dee8.preview.mode=true
