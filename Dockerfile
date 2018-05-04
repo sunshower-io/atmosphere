@@ -21,7 +21,7 @@ RUN mkdir -p /home/sunshower/$PROJECT_NAME
 
 RUN mkdir /root/.sunshower
 COPY web/src/test/resources/local/sunshower.yml /home/sunshower/sunshower/sunshower.yml
-COPY ./web/build/wildfly /home/sunshower/$PROJECT_NAME
+#COPY ./web/build/wildfly /home/sunshower/$PROJECT_NAME
 RUN find . -name logging.properties | xargs rm
 #RUN cd /home/sunshower/$PROJECT_NAME/sunshower-ui/ui
 #RUN jspm config registries.github.remote https://github.jspm.io
