@@ -1,9 +1,8 @@
 def repos = [
-        'http://repo.spring.io/snapshot',
-        "http://repo.spring.io/libs-milestone",
-        'https://mymavenrepo.com/repo/Bwb7CZ1J9Ud5KCkBvnhI',
-        "http://oss.sonatype.org/content/repositories/snapshots",
-        "http://www.gridgainsystems.com/nexus/content/repositories/external"
+        'http://artifacts.sunshower.io/repository/sunshower-releases',
+        'http://artifacts.sunshower.io/repository/sunshower-cache',
+        'http://artifacts.sunshower.io/repository/sunshower-snapshots',
+        "http://oss.sonatype.org/content/repositories/snapshots"
 ]
 
 buildscript {
